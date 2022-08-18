@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+
+struct breathingPattern {
+    let breatheIn: Int
+    let breatheHold: Int
+    let breatheOut: Int
+}

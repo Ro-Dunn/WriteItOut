@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct User {
+    var name: String
+    
+    var breathingSelection: breathingPattern
+    
+    var breathingRounds: Int
+
+    //and daily color data
+}
