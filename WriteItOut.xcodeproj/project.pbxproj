@@ -14,6 +14,9 @@
 		79D84B2528AE7DCF00927D4C /* WriteItOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B2428AE7DCF00927D4C /* WriteItOutTests.swift */; };
 		79D84B2F28AE7DCF00927D4C /* WriteItOutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B2E28AE7DCF00927D4C /* WriteItOutUITests.swift */; };
 		79D84B3128AE7DCF00927D4C /* WriteItOutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B3028AE7DCF00927D4C /* WriteItOutUITestsLaunchTests.swift */; };
+		79D84B4028AE8CA800927D4C /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B3F28AE8CA800927D4C /* UserView.swift */; };
+		79D84B4228AE8E9900927D4C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B4128AE8E9900927D4C /* User.swift */; };
+		79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		79D84B2A28AE7DCF00927D4C /* WriteItOutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WriteItOutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D84B2E28AE7DCF00927D4C /* WriteItOutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutUITests.swift; sourceTree = "<group>"; };
 		79D84B3028AE7DCF00927D4C /* WriteItOutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		79D84B3F28AE8CA800927D4C /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		79D84B4128AE8E9900927D4C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatterns.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,9 @@
 			children = (
 				79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */,
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
+				79D84B3F28AE8CA800927D4C /* UserView.swift */,
+				79D84B4128AE8E9900927D4C /* User.swift */,
+				79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */,
 				79D84B1728AE7DCE00927D4C /* Assets.xcassets */,
 				79D84B1928AE7DCE00927D4C /* Preview Content */,
 			);
@@ -257,8 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79D84B4228AE8E9900927D4C /* User.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
+				79D84B4028AE8CA800927D4C /* UserView.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
+				79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
