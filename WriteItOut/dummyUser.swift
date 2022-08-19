@@ -6,3 +6,6 @@
 //
 
 import Foundation
+
+
+let dummyUser = User(name: "Alex", breathingSelection: sevenFourEight, breathingRounds: 4)
