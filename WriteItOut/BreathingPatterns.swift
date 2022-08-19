@@ -8,8 +8,18 @@
 import Foundation
 
 
-struct breathingPattern {
-    let breatheIn: Int
-    let breatheHold: Int
-    let breatheOut: Int
+struct breathingPattern:Hashable {
+    var breatheIn: Int
+    var breatheHold: Int
+    var breatheOut: Int
 }
+
+
+let sevenFourEight = breathingPattern(breatheIn: 7, breatheHold: 4, breatheOut: 8)
+
+let fiveFiveFive = breathingPattern(breatheIn: 5, breatheHold: 5, breatheOut: 5)
+
+let fourSevenFour = breathingPattern(breatheIn: 4, breatheHold: 7, breatheOut: 4)
+
+
+let breathingArray: [breathingPattern] = [sevenFourEight, fiveFiveFive, fourSevenFour]

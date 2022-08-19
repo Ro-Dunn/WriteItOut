@@ -14,13 +14,13 @@ struct ContentView: View {
                 Button ("Start") {
                     print("Start Pressed")
                 }
-//                Button ("Color Map") {
-//                    print("Color Map Pressed")
-//                }
+                //Button ("Color Map") {
+                // print("Color Map Pressed")
+                //}
             }
             .toolbar {
-                Button("User") {
-                    print("User Pressed")
+                NavigationLink(destination: UserView(user:dummyUser)) {
+                    Text("User")
                 }
             }
         }

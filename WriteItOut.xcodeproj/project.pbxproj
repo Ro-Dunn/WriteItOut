@@ -17,6 +17,7 @@
 		79D84B4028AE8CA800927D4C /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B3F28AE8CA800927D4C /* UserView.swift */; };
 		79D84B4228AE8E9900927D4C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B4128AE8E9900927D4C /* User.swift */; };
 		79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */; };
+		79D84B4628AE9DC700927D4C /* dummyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B4528AE9DC700927D4C /* dummyUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		79D84B3F28AE8CA800927D4C /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		79D84B4128AE8E9900927D4C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatterns.swift; sourceTree = "<group>"; };
+		79D84B4528AE9DC700927D4C /* dummyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */,
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
+				79D84B4528AE9DC700927D4C /* dummyUser.swift */,
 				79D84B3F28AE8CA800927D4C /* UserView.swift */,
 				79D84B4128AE8E9900927D4C /* User.swift */,
 				79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */,
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79D84B4228AE8E9900927D4C /* User.swift in Sources */,
+				79D84B4628AE9DC700927D4C /* dummyUser.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
 				79D84B4028AE8CA800927D4C /* UserView.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
