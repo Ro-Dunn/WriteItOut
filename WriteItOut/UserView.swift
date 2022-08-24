@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct UserView: View {
-    @State var user: User
+    @State public var user: User
+    
     var body: some View {
         NavigationView {
             VStack{
@@ -19,11 +20,13 @@ struct UserView: View {
                         .textFieldStyle(.roundedBorder)
                         .padding()
                 }
+                
                 VStack{
                     Text("Current Pattern")
                     HStack{
                         Button ("7-4-8") {
                             user.breathingSelection = sevenFourEight
+                            
                             print("748 Pressed! Users pattern is now \(user.breathingSelection)")
                         }
                         .padding()
@@ -35,6 +38,7 @@ struct UserView: View {
                         
                         Button ("5-5-5") {
                             user.breathingSelection = fiveFiveFive
+                            
                             print("555 pressed! Users pattern is now \(user.breathingSelection)")
                         }
                         .padding()
@@ -46,6 +50,7 @@ struct UserView: View {
                         
                         Button ("4-7-4") {
                             user.breathingSelection = fourSevenFour
+                            
                             print("474 Pressed! Users pattern is now \(user.breathingSelection)")
                         }
                         .padding()

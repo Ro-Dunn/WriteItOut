@@ -7,8 +7,11 @@
 
 import Foundation
 
+extension Int {
+    
+}
 
-struct breathingPattern:Hashable {
+struct breathingPattern{
     var breatheIn: Int
     var breatheHold: Int
     var breatheOut: Int
@@ -20,6 +23,5 @@ let sevenFourEight = breathingPattern(breatheIn: 7, breatheHold: 4, breatheOut: 
 let fiveFiveFive = breathingPattern(breatheIn: 5, breatheHold: 5, breatheOut: 5)
 
 let fourSevenFour = breathingPattern(breatheIn: 4, breatheHold: 7, breatheOut: 4)
-
 
 let breathingArray: [breathingPattern] = [sevenFourEight, fiveFiveFive, fourSevenFour]

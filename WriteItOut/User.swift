@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct User {
-    var name: String
+struct User{
+    var name: String = "User"
     
     var breathingSelection: breathingPattern
     
@@ -16,3 +16,5 @@ struct User {
 
     //and daily color data
 }
+
+//let currentUser = User(name: <#T##String#>, breathingSelection: <#T##breathingPattern#>, breathingRounds: <#T##Int#>)
