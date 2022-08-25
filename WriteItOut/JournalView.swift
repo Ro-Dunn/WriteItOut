@@ -15,7 +15,7 @@ class UserJournal: ObservableObject {
 
 
 struct JournalView: View {
-    @State var userJournal = ""
+    @EnvironmentObject var userJournal: UserJournal
     @State var wordCount:Int = 0
     @State var finishEnabled = true
     @State private var showingSheet = false
@@ -25,16 +25,16 @@ struct JournalView: View {
             Text("\(wordCount)")
                 .multilineTextAlignment(.trailing)
             
-            TextEditor(text: $userJournal)
+            TextEditor(text: $userJournal.currentJournal)
                 .font(.body)
                 .padding()
                 .padding(.top, 20)
-                .onChange(of: userJournal) { value in
-                    let words = userJournal.split { $0 == " " || $0.isNewline }
+                .onChange(of: userJournal.currentJournal) { value in
+                    let words = userJournal.currentJournal.split { $0 == " " || $0.isNewline }
                     self.wordCount = words.count
                 }
                 .onAppear{
-                    userJournal = ""
+                    userJournal.currentJournal = ""
                 }
             HStack{
                 NavigationLink(destination: SaveView()) {

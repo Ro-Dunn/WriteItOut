@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SaveView: View {
     @State var shareText: ShareText?
-    @EnvironmentObject var currentJournal: UserJournal
+    @EnvironmentObject var userJournal: UserJournal
 
     var body: some View {
         VStack {
             Button("Show Activity View") {
-                shareText = ShareText(text: "Would you like to take your journal with you?")
+                shareText = ShareText(text: userJournal.currentJournal)
             }
             .padding()
         }

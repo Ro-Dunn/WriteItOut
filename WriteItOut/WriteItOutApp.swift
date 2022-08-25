@@ -12,6 +12,7 @@ struct WriteItOutApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(UserJournal())
         }
     }
 }
