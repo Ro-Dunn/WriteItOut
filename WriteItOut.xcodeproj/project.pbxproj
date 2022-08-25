@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		791DBD6628B3C20B00218559 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DBD6528B3C20B00218559 /* BreathingView.swift */; };
+		7997402228B7C3760031589C /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402128B7C3760031589C /* SaveView.swift */; };
 		79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */; };
 		79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1528AE7DC500927D4C /* ContentView.swift */; };
 		79D84B1828AE7DCE00927D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D84B1728AE7DCE00927D4C /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		791DBD6528B3C20B00218559 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
+		7997402128B7C3760031589C /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		79D84B1028AE7DC500927D4C /* WriteItOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WriteItOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutApp.swift; sourceTree = "<group>"; };
 		79D84B1528AE7DC500927D4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,11 +110,12 @@
 			children = (
 				79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */,
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
-				79D84B3F28AE8CA800927D4C /* UserView.swift */,
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
+				7997402128B7C3760031589C /* SaveView.swift */,
 				791DBD6528B3C20B00218559 /* BreathingView.swift */,
 				79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */,
 				79D84B4128AE8E9900927D4C /* User.swift */,
+				79D84B3F28AE8CA800927D4C /* UserView.swift */,
 				79D84B4528AE9DC700927D4C /* dummyUser.swift */,
 				79D84B1728AE7DCE00927D4C /* Assets.xcassets */,
 				79D84B1928AE7DCE00927D4C /* Preview Content */,
@@ -277,6 +280,7 @@
 			files = (
 				79D84B4228AE8E9900927D4C /* User.swift in Sources */,
 				79D84B4628AE9DC700927D4C /* dummyUser.swift in Sources */,
+				7997402228B7C3760031589C /* SaveView.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
 				79D84B4028AE8CA800927D4C /* UserView.swift in Sources */,
 				79D84B4828AFED1F00927D4C /* JournalView.swift in Sources */,

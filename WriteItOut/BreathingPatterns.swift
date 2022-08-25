@@ -7,21 +7,40 @@
 
 import Foundation
 
-extension Int {
+extension BreathingPattern {
+    func getUpNext(current:Int) -> Int {
+        var upNext:Int
+        
+        if current == breatheIn {
+            upNext = breatheHold
+            return upNext
+            
+        } else if current == breatheHold {
+            upNext = breatheOut
+            return upNext
+            
+        } else if current == breatheOut {
+            upNext = breatheIn
+            return upNext
+        }
+        
+        return 0
+    }
     
 }
 
-struct breathingPattern{
+struct BreathingPattern{
     var breatheIn: Int
     var breatheHold: Int
     var breatheOut: Int
 }
 
 
-let sevenFourEight = breathingPattern(breatheIn: 7, breatheHold: 4, breatheOut: 8)
+let sevenFourEight = BreathingPattern(breatheIn: 7, breatheHold: 4, breatheOut: 8)
 
-let fiveFiveFive = breathingPattern(breatheIn: 5, breatheHold: 5, breatheOut: 5)
+let fiveFiveFive = BreathingPattern(breatheIn: 5, breatheHold: 5, breatheOut: 5)
 
-let fourSevenFour = breathingPattern(breatheIn: 4, breatheHold: 7, breatheOut: 4)
+let fourSevenFour = BreathingPattern(breatheIn: 4, breatheHold: 7, breatheOut: 4)
 
-let breathingArray: [breathingPattern] = [sevenFourEight, fiveFiveFive, fourSevenFour]
+let breathingArray: [BreathingPattern] = [sevenFourEight, fiveFiveFive, fourSevenFour]
+
