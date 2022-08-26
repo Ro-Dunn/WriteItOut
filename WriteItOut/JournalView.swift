@@ -39,23 +39,30 @@ struct JournalView: View {
             HStack{
                 NavigationLink(destination: SaveView()) {
                     Text("Done")
-                    
                 }
-//                .environmentObject(currentJournal)
+                .frame(minWidth: 0, maxWidth: 100)
+                .padding()
+                .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+                .clipShape(Capsule())
+                .foregroundColor(.white)
                 
                 Button("Breathe") {
                     finishEnabled.toggle()
                     showingSheet.toggle()
                 }
-                .disabled(!finishEnabled)
+                .frame(minWidth: 0, maxWidth: 100)
                 .padding()
+                .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+                .clipShape(Capsule())
+                .foregroundColor(.white)
                 .sheet(isPresented: $showingSheet) {
-                    SheetView(user: dummyUser)
+                    SheetView(user: dummyUser, timeRemaining: 3)
                 }
                 .onAppear{
                     finishEnabled = true
                 }
             }
+            .padding()
         }
     }
 }
@@ -65,71 +72,124 @@ struct JournalView: View {
 struct SheetView: View {
     @Environment(\.dismiss) var dismiss
     @State var user:User
+    @State var settings = true
+    @State var currentState = "In"
+    @State var timeRemaining:Int
     
     var body: some View {
         VStack{
             VStack{
                 Text("Current Pattern")
+                    .opacity(!settings ? 0 : 1)
                 HStack{
                     Button ("7-4-8") {
                         user.breathingSelection = sevenFourEight
-                        
-                        print("748 Pressed! Users pattern is now \(user.breathingSelection)")
                     }
                     .padding()
-                    .background(Color(red: 0, green: 0, blue: 0.3))
+                    .background(user.breathingSelection == sevenFourEight ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
+                    .opacity(!settings ? 0 : 1)
+                    
                     
                     
                     
                     Button ("5-5-5") {
                         user.breathingSelection = fiveFiveFive
                         
-                        print("555 pressed! Users pattern is now \(user.breathingSelection)")
                     }
                     .padding()
-                    .background(Color(red: 0, green: 0, blue: 0.3))
+                    .background(user.breathingSelection == fiveFiveFive ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
-                    
+                    .opacity(!settings ? 0 : 1)
                     
                     
                     Button ("4-7-4") {
                         user.breathingSelection = fourSevenFour
-                        
-                        print("474 Pressed! Users pattern is now \(user.breathingSelection)")
                     }
                     .padding()
-                    .background(Color(red: 0, green: 0, blue: 0.3))
+                    .background(user.breathingSelection == fourSevenFour ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
+                    .opacity(!settings ? 0 : 1)
                 }
             }
             Text("Duration")
+                .opacity(!settings ? 0 : 1)
             GroupBox {
                 DisclosureGroup("Durration") {
                     Button("3 Rounds"){
                         user.breathingRounds = 3
                     }
                     .padding()
+                    .foregroundColor(.white)
+                    .frame(minWidth: 0, maxWidth: 300)
+                    .background(user.breathingRounds == 3 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    
                     Button("5 Rounds"){
                         user.breathingRounds = 5
                         
                     }
                     .padding()
+                    .foregroundColor(.white)
+                    .frame(minWidth: 0, maxWidth: 300)
+                    .background(user.breathingRounds == 5 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                     Button("8 Rounds"){
                         user.breathingRounds = 8
+                        
                     }
                     .padding()
+                    .foregroundColor(.white)
+                    .frame(minWidth: 0, maxWidth: 300)
+                    .background(user.breathingRounds == 8 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                }
+            }.opacity(!settings ? 0 : 1)
+        }
+        
+        Button ("Start") {
+            settings.toggle()
+        }
+        .padding(20)
+        .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+        .clipShape(Capsule())
+        .foregroundColor(.white)
+        .opacity(!settings ? 0 : 1)
+        
+        //Animation Stuff down here
+        let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
+        VStack {
+            Button ("\(currentState)") {
+                
+            }
+            .frame(minWidth: 0, maxWidth: 300)
+            .padding()
+            .foregroundColor(.white)
+            .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+            .cornerRadius(40)
+            .font(.title)
+            .zIndex(1)
+            .opacity(settings ? 0 : 1)
+            
+            .onReceive(timer) { _ in
+                if timeRemaining > 0 {
+                    timeRemaining -= 1
+                } else if timeRemaining == 0 {
+                    if currentState == "In"{
+                        currentState = "Hold"
+                        timeRemaining = user.breathingSelection.breatheHold
+                    } else if currentState == "Hold"{
+                        currentState = "Out"
+                        timeRemaining = user.breathingSelection.breatheOut
+                    } else if currentState == "Out"{
+                        currentState = "In"
+                        timeRemaining = user.breathingSelection.breatheIn
+                    }
                 }
             }
-            
-            //Color Map Display
-        }
+        }//end of sheet
     }
 }
-
 
 
 

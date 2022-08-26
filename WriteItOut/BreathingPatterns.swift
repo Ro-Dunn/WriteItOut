@@ -29,7 +29,7 @@ extension BreathingPattern {
     
 }
 
-struct BreathingPattern{
+struct BreathingPattern: Equatable{
     var breatheIn: Int
     var breatheHold: Int
     var breatheOut: Int

@@ -8,4 +8,4 @@
 import Foundation
 
 
-let dummyUser = User(breathingSelection: sevenFourEight, breathingRounds: 4)
+let dummyUser = User(breathingSelection: sevenFourEight, breathingRounds: 3)
