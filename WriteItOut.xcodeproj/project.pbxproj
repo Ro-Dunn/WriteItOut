@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		791DBD6628B3C20B00218559 /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791DBD6528B3C20B00218559 /* BreathingView.swift */; };
 		7997402228B7C3760031589C /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402128B7C3760031589C /* SaveView.swift */; };
 		7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7997402628B7E3850031589C /* DataModel.xcdatamodeld */; };
 		7997402A28B7E3CE0031589C /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402928B7E3CE0031589C /* ColorData.swift */; };
@@ -18,7 +17,6 @@
 		79D84B2528AE7DCF00927D4C /* WriteItOutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B2428AE7DCF00927D4C /* WriteItOutTests.swift */; };
 		79D84B2F28AE7DCF00927D4C /* WriteItOutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B2E28AE7DCF00927D4C /* WriteItOutUITests.swift */; };
 		79D84B3128AE7DCF00927D4C /* WriteItOutUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B3028AE7DCF00927D4C /* WriteItOutUITestsLaunchTests.swift */; };
-		79D84B4028AE8CA800927D4C /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B3F28AE8CA800927D4C /* UserView.swift */; };
 		79D84B4228AE8E9900927D4C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B4128AE8E9900927D4C /* User.swift */; };
 		79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */; };
 		79D84B4628AE9DC700927D4C /* dummyUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B4528AE9DC700927D4C /* dummyUser.swift */; };
@@ -43,7 +41,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		791DBD6528B3C20B00218559 /* BreathingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		7997402128B7C3760031589C /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		7997402728B7E3850031589C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		7997402928B7E3CE0031589C /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
@@ -57,7 +54,6 @@
 		79D84B2A28AE7DCF00927D4C /* WriteItOutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WriteItOutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D84B2E28AE7DCF00927D4C /* WriteItOutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutUITests.swift; sourceTree = "<group>"; };
 		79D84B3028AE7DCF00927D4C /* WriteItOutUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		79D84B3F28AE8CA800927D4C /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		79D84B4128AE8E9900927D4C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingPatterns.swift; sourceTree = "<group>"; };
 		79D84B4528AE9DC700927D4C /* dummyUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummyUser.swift; sourceTree = "<group>"; };
@@ -120,8 +116,6 @@
 				79D84B4128AE8E9900927D4C /* User.swift */,
 				79D84B4528AE9DC700927D4C /* dummyUser.swift */,
 				7997402928B7E3CE0031589C /* ColorData.swift */,
-				791DBD6528B3C20B00218559 /* BreathingView.swift */,
-				79D84B3F28AE8CA800927D4C /* UserView.swift */,
 				7997402628B7E3850031589C /* DataModel.xcdatamodeld */,
 				79D84B1728AE7DCE00927D4C /* Assets.xcassets */,
 				79D84B1928AE7DCE00927D4C /* Preview Content */,
@@ -290,9 +284,7 @@
 				7997402228B7C3760031589C /* SaveView.swift in Sources */,
 				7997402A28B7E3CE0031589C /* ColorData.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
-				79D84B4028AE8CA800927D4C /* UserView.swift in Sources */,
 				79D84B4828AFED1F00927D4C /* JournalView.swift in Sources */,
-				791DBD6628B3C20B00218559 /* BreathingView.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
 				79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */,
 			);

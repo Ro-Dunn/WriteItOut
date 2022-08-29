@@ -75,6 +75,7 @@ struct SheetView: View {
     @State var settings = true
     @State var currentState = "In"
     @State var timeRemaining:Int
+    @State var animationCount = 0
     
     var body: some View {
         VStack{
@@ -89,7 +90,6 @@ struct SheetView: View {
                     .background(user.breathingSelection == sevenFourEight ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
-                    .opacity(!settings ? 0 : 1)
                     
                     
                     
@@ -102,7 +102,6 @@ struct SheetView: View {
                     .background(user.breathingSelection == fiveFiveFive ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
-                    .opacity(!settings ? 0 : 1)
                     
                     
                     Button ("4-7-4") {
@@ -112,11 +111,9 @@ struct SheetView: View {
                     .background(user.breathingSelection == fourSevenFour ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
-                    .opacity(!settings ? 0 : 1)
                 }
             }
             Text("Duration")
-                .opacity(!settings ? 0 : 1)
             GroupBox {
                 DisclosureGroup("Durration") {
                     Button("3 Rounds"){
@@ -144,8 +141,10 @@ struct SheetView: View {
                     .frame(minWidth: 0, maxWidth: 300)
                     .background(user.breathingRounds == 8 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                 }
-            }.opacity(!settings ? 0 : 1)
+            }
         }
+        .opacity(!settings ? 0 : 1)
+        .zIndex(2)
         
         Button ("Start") {
             settings.toggle()
@@ -158,40 +157,38 @@ struct SheetView: View {
         
         //Animation Stuff down here
         let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
-        VStack {
-            Button ("\(currentState)") {
-                
-            }
-            .frame(minWidth: 0, maxWidth: 300)
-            .padding()
-            .foregroundColor(.white)
-            .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
-            .cornerRadius(40)
-            .font(.title)
-            .zIndex(1)
-            .opacity(settings ? 0 : 1)
+        
+        Button ("\(currentState)") {
             
-            .onReceive(timer) { _ in
-                if timeRemaining > 0 {
-                    timeRemaining -= 1
-                } else if timeRemaining == 0 {
-                    if currentState == "In"{
-                        currentState = "Hold"
-                        timeRemaining = user.breathingSelection.breatheHold
-                    } else if currentState == "Hold"{
-                        currentState = "Out"
-                        timeRemaining = user.breathingSelection.breatheOut
-                    } else if currentState == "Out"{
-                        currentState = "In"
-                        timeRemaining = user.breathingSelection.breatheIn
-                    }
+        }
+        .frame(minWidth: 0, maxWidth: 300)
+        .padding()
+        .foregroundColor(.white)
+        .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+        .cornerRadius(40)
+        .font(.title)
+        .zIndex(1)
+        .opacity(settings ? 0 : 1)
+        
+        .onReceive(timer) { _ in
+            if timeRemaining > 0 {
+                timeRemaining -= 1
+                animationCount = timeRemaining
+            } else if timeRemaining == 0 {
+                if currentState == "In"{
+                    currentState = "Hold"
+                    timeRemaining = user.breathingSelection.breatheHold
+                } else if currentState == "Hold"{
+                    currentState = "Out"
+                    timeRemaining = user.breathingSelection.breatheOut
+                } else if currentState == "Out"{
+                    currentState = "In"
+                    timeRemaining = user.breathingSelection.breatheIn
                 }
             }
-        }//end of sheet
+        }
     }
 }
-
-
 
 
 struct JournalView_Previews: PreviewProvider {
