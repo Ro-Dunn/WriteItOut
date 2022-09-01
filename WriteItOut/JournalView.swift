@@ -89,8 +89,6 @@ struct SheetView: View {
     }
     
     var body: some View {
-        var durationCount = user.breathingRounds
-        
         VStack{
             VStack{
                 Text("Current Pattern")
@@ -193,6 +191,7 @@ struct SheetView: View {
         .zIndex(1)
         .opacity(settings ? 0 : 1)
         
+        
         .onReceive(timer) { _ in
             if timeRemaining > 0 {
                 timeRemaining -= 1
@@ -205,12 +204,15 @@ struct SheetView: View {
                     currentState = "Out"
                     timeRemaining = userOut
                 } else if currentState == "Out"{
-                    durationCount = durationCount - 1
+                    rounds = rounds - 1
+                    print(rounds)
+                    if rounds > 0{
                     currentState = "In"
                     timeRemaining = userIn
-                }
-                if timeRemaining == 0 && durationCount == 0 {
-                    currentState = "Done"
+                    } else {
+                        currentState = "Done"
+                        timeRemaining = 0
+                    }
                 }
             }
         }
