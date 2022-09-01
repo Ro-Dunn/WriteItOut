@@ -13,12 +13,12 @@ class UserJournal: ObservableObject {
     @Published var currentJournal = ""
 }
 
-
 struct JournalView: View {
     @EnvironmentObject var userJournal: UserJournal
     @State var wordCount:Int = 0
     @State var finishEnabled = true
     @State private var showingSheet = false
+    @State var user:User
     
     var body: some View {
         VStack {
@@ -56,7 +56,7 @@ struct JournalView: View {
                 .clipShape(Capsule())
                 .foregroundColor(.white)
                 .sheet(isPresented: $showingSheet) {
-                    SheetView(user: dummyUser, timeRemaining: 3)
+                    SheetView(user: dummyUser, timeRemaining:user.breathingSelection.breatheIn )
                 }
                 .onAppear{
                     finishEnabled = true
@@ -77,7 +77,20 @@ struct SheetView: View {
     @State var timeRemaining:Int
     @State var animationCount = 0
     
+    @AppStorage("rounds") private var rounds = 0
+    @AppStorage("userIn") private var userIn = 0
+    @AppStorage("userHold") private var userHold = 0
+    @AppStorage("userOut") private var userOut = 0
+    
+    func setBreathe() {
+        userIn = user.breathingSelection.breatheIn
+        userHold = user.breathingSelection.breatheHold
+        userOut = user.breathingSelection.breatheOut
+    }
+    
     var body: some View {
+        var durationCount = user.breathingRounds
+        
         VStack{
             VStack{
                 Text("Current Pattern")
@@ -85,6 +98,7 @@ struct SheetView: View {
                 HStack{
                     Button ("7-4-8") {
                         user.breathingSelection = sevenFourEight
+                        setBreathe()
                     }
                     .padding()
                     .background(user.breathingSelection == sevenFourEight ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
@@ -96,6 +110,7 @@ struct SheetView: View {
                     
                     Button ("5-5-5") {
                         user.breathingSelection = fiveFiveFive
+                        setBreathe()
                         
                     }
                     .padding()
@@ -106,6 +121,7 @@ struct SheetView: View {
                     
                     Button ("4-7-4") {
                         user.breathingSelection = fourSevenFour
+                        setBreathe()
                     }
                     .padding()
                     .background(user.breathingSelection == fourSevenFour ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
@@ -117,29 +133,30 @@ struct SheetView: View {
             GroupBox {
                 DisclosureGroup("Durration") {
                     Button("3 Rounds"){
-                        user.breathingRounds = 3
+                        rounds = 3
                     }
                     .padding()
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: 300)
-                    .background(user.breathingRounds == 3 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(rounds == 3 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                     
                     Button("5 Rounds"){
-                        user.breathingRounds = 5
+                        rounds = 5
                         
                     }
                     .padding()
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: 300)
-                    .background(user.breathingRounds == 5 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(rounds == 5 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    
                     Button("8 Rounds"){
-                        user.breathingRounds = 8
+                        rounds = 8
                         
                     }
                     .padding()
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: 300)
-                    .background(user.breathingRounds == 8 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(rounds == 8 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
                 }
             }
         }
@@ -157,9 +174,15 @@ struct SheetView: View {
         
         //Animation Stuff down here
         let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
+        Text("\(timeRemaining)")
+            .padding()
+            .foregroundColor(.white)
+            .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+            .cornerRadius(40)
+            .font(.title)
+            .opacity(settings ? 0 : 1)
         
         Button ("\(currentState)") {
-            
         }
         .frame(minWidth: 0, maxWidth: 300)
         .padding()
@@ -177,22 +200,29 @@ struct SheetView: View {
             } else if timeRemaining == 0 {
                 if currentState == "In"{
                     currentState = "Hold"
-                    timeRemaining = user.breathingSelection.breatheHold
+                    timeRemaining = userHold
                 } else if currentState == "Hold"{
                     currentState = "Out"
-                    timeRemaining = user.breathingSelection.breatheOut
+                    timeRemaining = userOut
                 } else if currentState == "Out"{
+                    durationCount = durationCount - 1
                     currentState = "In"
-                    timeRemaining = user.breathingSelection.breatheIn
+                    timeRemaining = userIn
+                }
+                if timeRemaining == 0 && durationCount == 0 {
+                    currentState = "Done"
                 }
             }
+        }
+        .onAppear{
+            
         }
     }
 }
 
 
-struct JournalView_Previews: PreviewProvider {
-    static var previews: some View {
-        JournalView()
-    }
-}
+//struct JournalView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        JournalView()
+//    }
+//}

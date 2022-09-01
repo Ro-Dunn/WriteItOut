@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7973DA7428BFAE19005E381D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7328BFAE19005E381D /* DataModel.swift */; };
+		7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7528BFB90E005E381D /* UserSettings.swift */; };
 		7997402228B7C3760031589C /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402128B7C3760031589C /* SaveView.swift */; };
 		7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7997402628B7E3850031589C /* DataModel.xcdatamodeld */; };
 		7997402A28B7E3CE0031589C /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402928B7E3CE0031589C /* ColorData.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7973DA7328BFAE19005E381D /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		7973DA7528BFB90E005E381D /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		7997402128B7C3760031589C /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		7997402728B7E3850031589C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		7997402928B7E3CE0031589C /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		79D84B1228AE7DC500927D4C /* WriteItOut */ = {
 			isa = PBXGroup;
 			children = (
+				7973DA7528BFB90E005E381D /* UserSettings.swift */,
 				79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */,
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
@@ -117,6 +122,7 @@
 				79D84B4528AE9DC700927D4C /* dummyUser.swift */,
 				7997402928B7E3CE0031589C /* ColorData.swift */,
 				7997402628B7E3850031589C /* DataModel.xcdatamodeld */,
+				7973DA7328BFAE19005E381D /* DataModel.swift */,
 				79D84B1728AE7DCE00927D4C /* Assets.xcassets */,
 				79D84B1928AE7DCE00927D4C /* Preview Content */,
 			);
@@ -283,10 +289,12 @@
 				79D84B4628AE9DC700927D4C /* dummyUser.swift in Sources */,
 				7997402228B7C3760031589C /* SaveView.swift in Sources */,
 				7997402A28B7E3CE0031589C /* ColorData.swift in Sources */,
+				7973DA7428BFAE19005E381D /* DataModel.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
 				79D84B4828AFED1F00927D4C /* JournalView.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
 				79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */,
+				7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

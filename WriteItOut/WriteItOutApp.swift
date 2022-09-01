@@ -13,6 +13,7 @@ struct WriteItOutApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(UserJournal())
+                .environmentObject(UserSettings())
         }
     }
 }

@@ -8,11 +8,7 @@
 import Foundation
 import UIKit
 
-struct mood {
-    let name: String
-}
-
-struct color {
-    var color: UIColor
-    var connotation:mood
+struct DailyColor {
+    var id: UUID
+    var name: String
 }

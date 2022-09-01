@@ -9,14 +9,14 @@ import SwiftUI
 
 
 struct ContentView: View {
-    //    @State var user: User
+    
     var body: some View {
         NavigationView {
             VStack {
-                Text("Welcome Back.")
+                Text("Welcome Back")
                     .padding()
                 
-                NavigationLink(destination: JournalView()) {
+                NavigationLink(destination: JournalView(user: dummyUser)) {
                     Text("Start")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()
