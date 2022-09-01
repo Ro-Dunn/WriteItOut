@@ -13,12 +13,15 @@ struct SaveView: View {
     
     var body: some View {
         VStack {
+            
             Text("""
                  Hey, we don't save your entiries, in order to allow you to write without consequence.
                 
                  But if you'd like to take the entry with you on your clipboard or share it through text to yourself or others- please feel free to do so!
                 """)
-            Button("Would You Like To Take This Entry With You?") {
+            .padding()
+            
+            Button("Would you like to share your entry?") {
                 shareText = ShareText(text: userJournal.currentJournal)
             }
             .padding()

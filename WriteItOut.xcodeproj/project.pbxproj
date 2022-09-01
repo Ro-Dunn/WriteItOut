@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7973DA7428BFAE19005E381D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7328BFAE19005E381D /* DataModel.swift */; };
 		7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7528BFB90E005E381D /* UserSettings.swift */; };
+		7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7928C0FB6E005E381D /* DataController.swift */; };
+		7973DA7C28C0FDD1005E381D /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7B28C0FDD1005E381D /* ColorMap.swift */; };
+		7973DA7E28C10F77005E381D /* RawColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7D28C10F77005E381D /* RawColors.swift */; };
 		7997402228B7C3760031589C /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402128B7C3760031589C /* SaveView.swift */; };
 		7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7997402628B7E3850031589C /* DataModel.xcdatamodeld */; };
-		7997402A28B7E3CE0031589C /* ColorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402928B7E3CE0031589C /* ColorData.swift */; };
 		79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */; };
 		79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1528AE7DC500927D4C /* ContentView.swift */; };
 		79D84B1828AE7DCE00927D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D84B1728AE7DCE00927D4C /* Assets.xcassets */; };
@@ -43,11 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7973DA7328BFAE19005E381D /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		7973DA7528BFB90E005E381D /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		7973DA7928C0FB6E005E381D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		7973DA7B28C0FDD1005E381D /* ColorMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
+		7973DA7D28C10F77005E381D /* RawColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawColors.swift; sourceTree = "<group>"; };
 		7997402128B7C3760031589C /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		7997402728B7E3850031589C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		7997402928B7E3CE0031589C /* ColorData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorData.swift; sourceTree = "<group>"; };
 		79D84B1028AE7DC500927D4C /* WriteItOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WriteItOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutApp.swift; sourceTree = "<group>"; };
 		79D84B1528AE7DC500927D4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,17 +114,18 @@
 		79D84B1228AE7DC500927D4C /* WriteItOut */ = {
 			isa = PBXGroup;
 			children = (
-				7973DA7528BFB90E005E381D /* UserSettings.swift */,
 				79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */,
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
+				7973DA7B28C0FDD1005E381D /* ColorMap.swift */,
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
 				7997402128B7C3760031589C /* SaveView.swift */,
+				7973DA7D28C10F77005E381D /* RawColors.swift */,
 				79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */,
 				79D84B4128AE8E9900927D4C /* User.swift */,
 				79D84B4528AE9DC700927D4C /* dummyUser.swift */,
-				7997402928B7E3CE0031589C /* ColorData.swift */,
 				7997402628B7E3850031589C /* DataModel.xcdatamodeld */,
-				7973DA7328BFAE19005E381D /* DataModel.swift */,
+				7973DA7928C0FB6E005E381D /* DataController.swift */,
+				7973DA7528BFB90E005E381D /* UserSettings.swift */,
 				79D84B1728AE7DCE00927D4C /* Assets.xcassets */,
 				79D84B1928AE7DCE00927D4C /* Preview Content */,
 			);
@@ -286,15 +289,16 @@
 			files = (
 				79D84B4228AE8E9900927D4C /* User.swift in Sources */,
 				7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */,
+				7973DA7E28C10F77005E381D /* RawColors.swift in Sources */,
 				79D84B4628AE9DC700927D4C /* dummyUser.swift in Sources */,
 				7997402228B7C3760031589C /* SaveView.swift in Sources */,
-				7997402A28B7E3CE0031589C /* ColorData.swift in Sources */,
-				7973DA7428BFAE19005E381D /* DataModel.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
+				7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */,
 				79D84B4828AFED1F00927D4C /* JournalView.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
 				79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */,
 				7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */,
+				7973DA7C28C0FDD1005E381D /* ColorMap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

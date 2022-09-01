@@ -1,15 +1,15 @@
 //
-//  DataModel.swift
+//  DataController.swift
 //  WriteItOut
 //
-//  Created by Katy Dunn on 8/31/22.
+//  Created by Katy Dunn on 9/1/22.
 //
 import CoreData
 import Foundation
 
 
-class DataController: ObservableObject {
-    let container = NSPersistentContainer(name: "WriteItOut")
+class DataController: ObservableObject{
+    let container = NSPersistentContainer(name: "DataModel")
     
     init() {
         container.loadPersistentStores { description, error in
@@ -18,4 +18,13 @@ class DataController: ObservableObject {
             }
         }
     }
+    
+    func saveTodaysColor() {
+        
+    }
+    
+    func todaysColor() -> DailyColor? {
+        return nil
+    }
+    
 }
