@@ -16,6 +16,13 @@ struct WriteItOutApp: App {
                 .environment(\.managedObjectContext, dataController.container.viewContext)
                 .environmentObject(UserJournal())
                 .environmentObject(UserSettings())
+                .environmentObject(User(breathingSelection:BreathingPattern.init(
+                    breatheIn: UserDefaults.standard.integer(forKey: "userIn"),
+                    breatheHold: UserDefaults.standard.integer(forKey: "userHold"),
+                    breatheOut: UserDefaults.standard.integer(forKey: "userOut")),
+                    breathingRounds:rounds.init(roundCount: UserDefaults.standard.integer(forKey: "userRounds")
+                    ))
+                )
         }
     }
 }

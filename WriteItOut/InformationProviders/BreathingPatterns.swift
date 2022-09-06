@@ -29,12 +29,15 @@ extension BreathingPattern {
     
 }
 
-struct BreathingPattern: Equatable{
+struct BreathingPattern: Equatable, Codable{
     var breatheIn: Int
     var breatheHold: Int
     var breatheOut: Int
 }
 
+struct rounds: Equatable, Codable{
+    var roundCount:Int
+}
 
 let sevenFourEight = BreathingPattern(breatheIn: 7, breatheHold: 4, breatheOut: 8)
 
@@ -44,3 +47,8 @@ let fourSevenFour = BreathingPattern(breatheIn: 4, breatheHold: 7, breatheOut: 4
 
 let breathingArray: [BreathingPattern] = [sevenFourEight, fiveFiveFive, fourSevenFour]
 
+var threeRounds = rounds(roundCount: 3)
+
+var fiveRounds = rounds(roundCount: 5)
+
+var eightRounds = rounds(roundCount: 8)

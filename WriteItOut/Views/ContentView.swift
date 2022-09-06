@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @EnvironmentObject var user:User
     
     var body: some View {
         NavigationView {
@@ -16,22 +17,22 @@ struct ContentView: View {
                 Text("Welcome Back")
                     .padding()
                 
-                NavigationLink(destination: JournalView(user: dummyUser)) {
+                NavigationLink(destination: JournalView(user: user)) {
                     Text("Start")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()
                         .foregroundColor(.white)
-                        .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+                        .background(Color("SystemColor"))
                         .cornerRadius(40)
                         .font(.title)
                 }
                 
-                NavigationLink(destination: ColorMap()) {
+                NavigationLink(destination: ColorMap(colorSelected: false, thisColorSelected: "SystemColor")) {
                     Text("Color Map")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()
                         .foregroundColor(.white)
-                        .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+                        .background(Color("SystemColor"))
                         .cornerRadius(40)
                         .font(.title)
                 }

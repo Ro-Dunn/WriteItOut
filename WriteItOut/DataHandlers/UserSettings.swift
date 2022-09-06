@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 class UserSettings: ObservableObject {
+    
     @Published var userRounds: Int {
         didSet {
             UserDefaults.standard.set(userRounds, forKey: "userRounds")
@@ -35,8 +36,8 @@ class UserSettings: ObservableObject {
     
     init() {
         self.userRounds = UserDefaults.standard.object(forKey: "userRounds") as? Int ?? 3
-        self.userPatternIn = UserDefaults.standard.object(forKey: "userIn") as? Int ?? 7
-        self.userPatternHold = UserDefaults.standard.object(forKey: "userHold") as? Int ?? 4
-        self.userPatternOut = UserDefaults.standard.object(forKey: "userOut") as? Int ?? 8
+        self.userPatternIn = UserDefaults.standard.object(forKey: "userIn") as? Int ?? 5
+        self.userPatternHold = UserDefaults.standard.object(forKey: "userHold") as? Int ?? 5
+        self.userPatternOut = UserDefaults.standard.object(forKey: "userOut") as? Int ?? 5
     }
 }

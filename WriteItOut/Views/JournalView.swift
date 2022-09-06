@@ -42,7 +42,7 @@ struct JournalView: View {
                 }
                 .frame(minWidth: 0, maxWidth: 100)
                 .padding()
-                .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+                .background(Color("SystemColor"))
                 .clipShape(Capsule())
                 .foregroundColor(.white)
                 
@@ -52,11 +52,11 @@ struct JournalView: View {
                 }
                 .frame(minWidth: 0, maxWidth: 100)
                 .padding()
-                .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+                .background(Color("SystemColor"))
                 .clipShape(Capsule())
                 .foregroundColor(.white)
                 .sheet(isPresented: $showingSheet) {
-                    SheetView(user: dummyUser, timeRemaining:user.breathingSelection.breatheIn )
+                    SheetView(user: user, timeRemaining:user.breathingSelection.breatheIn )
                 }
                 .onAppear{
                     finishEnabled = true
@@ -75,17 +75,21 @@ struct SheetView: View {
     @State var settings = true
     @State var currentState = "In"
     @State var timeRemaining:Int
-    @State var animationCount = 0
     
-    @AppStorage("rounds") private var rounds = 0
-    @AppStorage("userIn") private var userIn = 0
-    @AppStorage("userHold") private var userHold = 0
-    @AppStorage("userOut") private var userOut = 0
-    
+    //    @AppStorage("rounds") private var rounds = 0
+    @State private var userRounds = UserDefaults.standard.integer(forKey: "userRounds")
+    @State private var userIn = UserDefaults.standard.integer(forKey: "userIn")
+    @State private var userHold = UserDefaults.standard.integer(forKey: "userHold")
+    @State private var userOut = UserDefaults.standard.integer(forKey: "userOut")
+
     func setBreathe() {
-        userIn = user.breathingSelection.breatheIn
-        userHold = user.breathingSelection.breatheHold
-        userOut = user.breathingSelection.breatheOut
+        UserDefaults.standard.set(self.userIn, forKey: "userIn")
+        UserDefaults.standard.set(self.userHold, forKey: "userHold")
+        UserDefaults.standard.set(self.userOut, forKey: "userOut")
+    }
+    
+    func setRounds() {
+        UserDefaults.standard.set(self.userRounds, forKey: "userRounds")
     }
     
     var body: some View {
@@ -99,7 +103,7 @@ struct SheetView: View {
                         setBreathe()
                     }
                     .padding()
-                    .background(user.breathingSelection == sevenFourEight ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(user.breathingSelection == sevenFourEight ? Color("SystemColor") : Color("SytemSelectedColor"))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
                     
@@ -112,7 +116,7 @@ struct SheetView: View {
                         
                     }
                     .padding()
-                    .background(user.breathingSelection == fiveFiveFive ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(user.breathingSelection == fiveFiveFive ? Color("SystemColor") : Color("SytemSelectedColor"))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
                     
@@ -122,7 +126,7 @@ struct SheetView: View {
                         setBreathe()
                     }
                     .padding()
-                    .background(user.breathingSelection == fourSevenFour ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(user.breathingSelection == fourSevenFour ? Color("SystemColor") : Color("SytemSelectedColor"))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
                 }
@@ -131,30 +135,33 @@ struct SheetView: View {
             GroupBox {
                 DisclosureGroup("Durration") {
                     Button("3 Rounds"){
-                        rounds = 3
+                        user.breathingRounds = threeRounds
+                        setRounds()
                     }
                     .padding()
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: 300)
-                    .background(rounds == 3 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(user.breathingRounds == threeRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
                     
                     Button("5 Rounds"){
-                        rounds = 5
+                        user.breathingRounds = fiveRounds
+                        setRounds()
                         
                     }
                     .padding()
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: 300)
-                    .background(rounds == 5 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(user.breathingRounds == fiveRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
                     
                     Button("8 Rounds"){
-                        rounds = 8
+                        user.breathingRounds = eightRounds
+                        setRounds()
                         
                     }
                     .padding()
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: 300)
-                    .background(rounds == 8 ? Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6) : Color(red: 0, green: 0, blue: 0.3).opacity(0.6))
+                    .background(user.breathingRounds == eightRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
                 }
             }
         }
@@ -163,9 +170,12 @@ struct SheetView: View {
         
         Button ("Start") {
             settings.toggle()
+            timeRemaining = userIn
+            print(user.breathingSelection)
+            print(user.breathingRounds)
         }
         .padding(20)
-        .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+        .background(Color("SystemColor"))
         .clipShape(Capsule())
         .foregroundColor(.white)
         .opacity(!settings ? 0 : 1)
@@ -175,7 +185,7 @@ struct SheetView: View {
         Text("\(timeRemaining)")
             .padding()
             .foregroundColor(.white)
-            .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+            .background(Color("SystemColor"))
             .cornerRadius(40)
             .font(.title)
             .opacity(settings ? 0 : 1)
@@ -185,7 +195,7 @@ struct SheetView: View {
         .frame(minWidth: 0, maxWidth: 300)
         .padding()
         .foregroundColor(.white)
-        .background(Color(red: 0.1, green: 0, blue: 0.3).opacity(0.6))
+        .background(Color("SystemColor"))
         .cornerRadius(40)
         .font(.title)
         .zIndex(1)
@@ -195,7 +205,6 @@ struct SheetView: View {
         .onReceive(timer) { _ in
             if timeRemaining > 0 {
                 timeRemaining -= 1
-                animationCount = timeRemaining
             } else if timeRemaining == 0 {
                 if currentState == "In"{
                     currentState = "Hold"
@@ -204,11 +213,11 @@ struct SheetView: View {
                     currentState = "Out"
                     timeRemaining = userOut
                 } else if currentState == "Out"{
-                    rounds = rounds - 1
-                    print(rounds)
-                    if rounds > 0{
-                    currentState = "In"
-                    timeRemaining = userIn
+                    userRounds = userRounds - 1
+                    print(userRounds)
+                    if userRounds > 0{
+                        currentState = "In"
+                        timeRemaining = userIn
                     } else {
                         currentState = "Done"
                         timeRemaining = 0
@@ -217,7 +226,7 @@ struct SheetView: View {
             }
         }
         .onAppear{
-            
+            print(user.breathingSelection)
         }
     }
 }
