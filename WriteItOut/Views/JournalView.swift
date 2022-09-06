@@ -81,7 +81,7 @@ struct SheetView: View {
     @State private var userIn = UserDefaults.standard.integer(forKey: "userIn")
     @State private var userHold = UserDefaults.standard.integer(forKey: "userHold")
     @State private var userOut = UserDefaults.standard.integer(forKey: "userOut")
-
+    
     func setBreathe() {
         UserDefaults.standard.set(self.userIn, forKey: "userIn")
         UserDefaults.standard.set(self.userHold, forKey: "userHold")
@@ -131,42 +131,48 @@ struct SheetView: View {
                     .foregroundColor(.white)
                 }
             }
+            
+            Divider()
+            
             Text("Duration")
-            GroupBox {
-                DisclosureGroup("Durration") {
-                    Button("3 Rounds"){
-                        user.breathingRounds = threeRounds
-                        setRounds()
-                    }
-                    .padding()
-                    .foregroundColor(.white)
-                    .frame(minWidth: 0, maxWidth: 300)
-                    .background(user.breathingRounds == threeRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
-                    
-                    Button("5 Rounds"){
-                        user.breathingRounds = fiveRounds
-                        setRounds()
-                        
-                    }
-                    .padding()
-                    .foregroundColor(.white)
-                    .frame(minWidth: 0, maxWidth: 300)
-                    .background(user.breathingRounds == fiveRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
-                    
-                    Button("8 Rounds"){
-                        user.breathingRounds = eightRounds
-                        setRounds()
-                        
-                    }
-                    .padding()
-                    .foregroundColor(.white)
-                    .frame(minWidth: 0, maxWidth: 300)
-                    .background(user.breathingRounds == eightRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+            HStack{
+                Button("3 Rounds"){
+                    user.breathingRounds = threeRounds
+                    setRounds()
                 }
+                .padding()
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: 150)
+                .background(user.breathingRounds == threeRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                .clipShape(Capsule())
+                
+                Button("5 Rounds"){
+                    user.breathingRounds = fiveRounds
+                    setRounds()
+                    
+                }
+                .padding()
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: 150)
+                .background(user.breathingRounds == fiveRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                .clipShape(Capsule())
+                
+                Button("8 Rounds"){
+                    user.breathingRounds = eightRounds
+                    setRounds()
+                    
+                }
+                .padding()
+                .foregroundColor(.white)
+                .frame(minWidth: 0, maxWidth: 150)
+                .background(user.breathingRounds == eightRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                .clipShape(Capsule())
             }
         }
         .opacity(!settings ? 0 : 1)
         .zIndex(2)
+        
+        Divider()
         
         Button ("Start") {
             settings.toggle()

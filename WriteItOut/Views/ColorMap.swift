@@ -46,7 +46,6 @@ struct ColorMap: View {
                     }.padding()
                 }.frame(height: 100)
                 Divider()
-                Spacer()
             }
             
             
