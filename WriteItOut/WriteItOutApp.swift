@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct WriteItOutApp: App {
-    @StateObject private var dataController = DataController()
+    @Environment(\.scenePhase) var scenePhase
+    @StateObject private var dataController = DataController.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -23,6 +24,9 @@ struct WriteItOutApp: App {
                     breathingRounds:rounds.init(roundCount: UserDefaults.standard.integer(forKey: "userRounds")
                     ))
                 )
+        }
+        .onChange(of: scenePhase) { _ in
+            dataController.save()
         }
     }
 }

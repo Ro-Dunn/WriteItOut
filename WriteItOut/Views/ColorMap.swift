@@ -17,13 +17,16 @@ extension String: Identifiable {
 
 struct ColorMap: View {
     @Environment(\.managedObjectContext) var moc
-    
+
+//    @FetchRequest var daliy: FetchedResults<DailyColor>
+
     @State public var colorSelected:Bool
     @State public var thisColorSelected:String //dailyColor.color
     @State public var dateOfEntry:Date = Date()
     @State public var df = DateFormatter() //going to be dailyColor.dateString (Must return it as a date converted to a string)
     
     var body: some View {
+    
         VStack{
             Circle()
                 .fill(colorSelected == true ? Color("\(thisColorSelected)") : Color("SystemColor"))
@@ -48,7 +51,6 @@ struct ColorMap: View {
                 Divider()
             }
             
-            
             Button("Save") {
                 let newColorData = DailyColor(context: moc)
                 df.dateStyle = DateFormatter.Style.short
@@ -63,6 +65,7 @@ struct ColorMap: View {
             .background(Color("SystemColor"))
             .clipShape(Capsule())
             .foregroundColor(.white)
+            Spacer()
             
         }
     }
