@@ -16,15 +16,24 @@ extension String: Identifiable {
 }
 
 struct ColorMap: View {
+    @EnvironmentObject var dataController:DataController
     @Environment(\.managedObjectContext) var moc
 
-//    @FetchRequest var daliy: FetchedResults<DailyColor>
+    @FetchRequest var daliy: FetchedResults<DailyColor>
 
     @State public var colorSelected:Bool
     @State public var thisColorSelected:String //dailyColor.color
     @State public var dateOfEntry:Date = Date()
     @State public var df = DateFormatter() //going to be dailyColor.dateString (Must return it as a date converted to a string)
-    
+    init(colorSelected:Bool, thisColorSelected:String, dateOfEntry: Date){
+        let df = DateFormatter()
+        df.dateStyle = .short
+        let dateString = df.string(from: Date())
+        _daliy = FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "dateString == %@", dateString))
+        self._colorSelected = State(initialValue: colorSelected)
+        self._thisColorSelected = State(initialValue: thisColorSelected)
+        self._dateOfEntry = State(initialValue: dateOfEntry)
+    }
     var body: some View {
     
         VStack{
@@ -52,13 +61,14 @@ struct ColorMap: View {
             }
             
             Button("Save") {
-                let newColorData = DailyColor(context: moc)
+                print(daliy)
+                let newColorData = DailyColor(context: dataController.container.viewContext)
                 df.dateStyle = DateFormatter.Style.short
                 newColorData.dateString = (df.string(from: dateOfEntry))
                 newColorData.color = thisColorSelected
                 print(newColorData)
                 //save the date to colorData
-                try? moc.save()
+                try? dataController.save()
             }
             .frame(minWidth: 0, maxWidth: 100)
             .padding()

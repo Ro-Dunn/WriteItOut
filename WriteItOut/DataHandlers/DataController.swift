@@ -13,19 +13,6 @@ class DataController: ObservableObject{
     
     let container:NSPersistentContainer
     
-    static var preview: DataController = {
-            let controller = DataController(inMemory: true)
-
-            // Create 10 example programming languages.
-            for _ in 0..<10 {
-                let fakeColor = DailyColor(context: controller.container.viewContext)
-                fakeColor.color = feelingArray.randomElement()
-                fakeColor.dateString = "9/6/22"
-            }
-
-            return controller
-        }()
-    
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "DataModel")
 
@@ -38,11 +25,6 @@ class DataController: ObservableObject{
                 fatalError("Error: \(error.localizedDescription)")
             }
         }
-        
-        let request: NSFetchRequest<DailyColor> = DailyColor.fetchRequest()
-        request.fetchLimit = 10
-        
-        //        _dailyColors = FetchRequest(fetchRequest: request)
     }
     
 
@@ -99,3 +81,21 @@ class DataController: ObservableObject{
 //        }
 //    }
 //}
+
+
+//let request: NSFetchRequest<DailyColor> = DailyColor.fetchRequest()
+//request.fetchLimit = 10
+
+
+//static var preview: DataController = {
+//        let controller = DataController(inMemory: true)
+//
+//        // Create 10 example programming languages.
+//        for _ in 0..<10 {
+//            let fakeColor = DailyColor(context: controller.container.viewContext)
+//            fakeColor.color = feelingArray.randomElement()
+//            fakeColor.dateString = "9/6/22"
+//        }
+//
+//        return controller
+//    }()

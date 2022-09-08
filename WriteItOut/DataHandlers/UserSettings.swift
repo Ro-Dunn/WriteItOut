@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class UserSettings: ObservableObject {
+class UserSettings: ObservableObject{
     
     @Published var userRounds: Int {
         didSet {
@@ -48,20 +48,29 @@ class UserSettings: ObservableObject {
             defaults.set(encoded, forKey: "userRounds")
         }
         
-        if let encoded = try? encoder.encode(userPatternIn) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "userIn")
-        }
-        
-        if let encoded = try? encoder.encode(userPatternHold) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "userHold")
-        }
-        
-        if let encoded = try? encoder.encode(userPatternOut) {
-            let defaults = UserDefaults.standard
-            defaults.set(encoded, forKey: "userOut")
-        }
+        //        func findData() {
+        //            let defaults = UserDefaults.standard
+        //            if let userSettings = defaults.object(forKey: "userRounds") as? Data {
+        //                let decoder = JSONDecoder()
+        //                if let loadedRounds = try? decoder.decode(rounds.self, from: userRounds) {
+        //                    print(loadedRounds)
+        //                }
+        //            }
     }
-    
 }
+
+
+//        if let encoded = try? encoder.encode(userPatternIn) {
+//            let defaults = UserDefaults.standard
+//            defaults.set(encoded, forKey: "userIn")
+//        }
+//
+//        if let encoded = try? encoder.encode(userPatternHold) {
+//            let defaults = UserDefaults.standard
+//            defaults.set(encoded, forKey: "userHold")
+//        }
+//
+//        if let encoded = try? encoder.encode(userPatternOut) {
+//            let defaults = UserDefaults.standard
+//            defaults.set(encoded, forKey: "userOut")
+//        }

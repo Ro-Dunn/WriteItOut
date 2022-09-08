@@ -94,150 +94,137 @@ struct SheetView: View {
     
     var body: some View {
         VStack{
-            VStack{
-                Text("Current Pattern")
-                    .opacity(!settings ? 0 : 1)
-                HStack{
-                    Button ("7-4-8") {
-                        user.breathingSelection = sevenFourEight
-                        setBreathe()
-                    }
-                    .padding()
-                    .background(user.breathingSelection == sevenFourEight ? Color("SystemColor") : Color("SytemSelectedColor"))
-                    .clipShape(Capsule())
-                    .foregroundColor(.white)
-                    
-                    
-                    
-                    
-                    Button ("5-5-5") {
-                        user.breathingSelection = fiveFiveFive
-                        setBreathe()
+            if settings == true {
+                VStack{
+                    HStack{
+                        Button ("7-4-8") {
+                            user.breathingSelection = sevenFourEight
+                            setBreathe()
+                        }
+                        .padding()
+                        .background(user.breathingSelection == sevenFourEight ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .clipShape(Capsule())
+                        .foregroundColor(.white)
+                        
+                        Button ("5-5-5") {
+                            user.breathingSelection = fiveFiveFive
+                            setBreathe()
+                        }
+                        .padding()
+                        .background(user.breathingSelection == fiveFiveFive ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .clipShape(Capsule())
+                        .foregroundColor(.white)
+                        
+                        Button ("4-7-4") {
+                            user.breathingSelection = fourSevenFour
+                            setBreathe()
+                        }
+                        .padding()
+                        .background(user.breathingSelection == fourSevenFour ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .clipShape(Capsule())
+                        .foregroundColor(.white)
                         
                     }
-                    .padding()
-                    .background(user.breathingSelection == fiveFiveFive ? Color("SystemColor") : Color("SytemSelectedColor"))
-                    .clipShape(Capsule())
-                    .foregroundColor(.white)
-                    
-                    
-                    Button ("4-7-4") {
-                        user.breathingSelection = fourSevenFour
-                        setBreathe()
+                    HStack{
+                        Button("3 Rounds"){
+                            user.breathingRounds = threeRounds
+                            setRounds()
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: 150)
+                        .background(user.breathingRounds == threeRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .clipShape(Capsule())
+                        
+                        Button("5 Rounds"){
+                            user.breathingRounds = fiveRounds
+                            setRounds()
+                            
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: 150)
+                        .background(user.breathingRounds == fiveRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .clipShape(Capsule())
+                        
+                        Button("8 Rounds"){
+                            user.breathingRounds = eightRounds
+                            setRounds()
+                            
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: 150)
+                        .background(user.breathingRounds == eightRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .clipShape(Capsule())
+                        
                     }
+                    VStack{
+                        Divider()
+                        Button ("Start") {
+                            settings.toggle()
+                            timeRemaining = userIn
+                            print(user.breathingSelection)
+                            print(user.breathingRounds)
+                        }
+                        .padding(20)
+                        .background(Color("SystemColor"))
+                        .clipShape(Capsule())
+                        .foregroundColor(.white)
+                        .opacity(!settings ? 0 : 1)
+                    }
+                }
+            } else {
+                VStack{
+                    let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
+                    Text("\(timeRemaining)")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color("SystemColor"))
+                        .cornerRadius(40)
+                        .font(.title)
+                        .opacity(settings ? 0 : 1)
+                    
+                    Button ("\(currentState)") {
+                    }
+                    .frame(minWidth: 0, maxWidth: 300)
                     .padding()
-                    .background(user.breathingSelection == fourSevenFour ? Color("SystemColor") : Color("SytemSelectedColor"))
-                    .clipShape(Capsule())
                     .foregroundColor(.white)
-                }
-            }
-            
-            Divider()
-            
-            Text("Duration")
-            HStack{
-                Button("3 Rounds"){
-                    user.breathingRounds = threeRounds
-                    setRounds()
-                }
-                .padding()
-                .foregroundColor(.white)
-                .frame(minWidth: 0, maxWidth: 150)
-                .background(user.breathingRounds == threeRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
-                .clipShape(Capsule())
-                
-                Button("5 Rounds"){
-                    user.breathingRounds = fiveRounds
-                    setRounds()
+                    .background(Color("SystemColor"))
+                    .cornerRadius(40)
+                    .font(.title)
+                    .zIndex(1)
+                    .opacity(settings ? 0 : 1)
                     
-                }
-                .padding()
-                .foregroundColor(.white)
-                .frame(minWidth: 0, maxWidth: 150)
-                .background(user.breathingRounds == fiveRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
-                .clipShape(Capsule())
-                
-                Button("8 Rounds"){
-                    user.breathingRounds = eightRounds
-                    setRounds()
                     
-                }
-                .padding()
-                .foregroundColor(.white)
-                .frame(minWidth: 0, maxWidth: 150)
-                .background(user.breathingRounds == eightRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
-                .clipShape(Capsule())
-            }
-        }
-        .opacity(!settings ? 0 : 1)
-        .zIndex(2)
-        
-        Divider()
-        
-        Button ("Start") {
-            settings.toggle()
-            timeRemaining = userIn
-            print(user.breathingSelection)
-            print(user.breathingRounds)
-        }
-        .padding(20)
-        .background(Color("SystemColor"))
-        .clipShape(Capsule())
-        .foregroundColor(.white)
-        .opacity(!settings ? 0 : 1)
-        
-        //Animation Stuff down here
-        let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
-        Text("\(timeRemaining)")
-            .padding()
-            .foregroundColor(.white)
-            .background(Color("SystemColor"))
-            .cornerRadius(40)
-            .font(.title)
-            .opacity(settings ? 0 : 1)
-        
-        Button ("\(currentState)") {
-        }
-        .frame(minWidth: 0, maxWidth: 300)
-        .padding()
-        .foregroundColor(.white)
-        .background(Color("SystemColor"))
-        .cornerRadius(40)
-        .font(.title)
-        .zIndex(1)
-        .opacity(settings ? 0 : 1)
-        
-        
-        .onReceive(timer) { _ in
-            if timeRemaining > 0 {
-                timeRemaining -= 1
-            } else if timeRemaining == 0 {
-                if currentState == "In"{
-                    currentState = "Hold"
-                    timeRemaining = userHold
-                } else if currentState == "Hold"{
-                    currentState = "Out"
-                    timeRemaining = userOut
-                } else if currentState == "Out"{
-                    userRounds = userRounds - 1
-                    print(userRounds)
-                    if userRounds > 0{
-                        currentState = "In"
-                        timeRemaining = userIn
-                    } else {
-                        currentState = "Done"
-                        timeRemaining = 0
+                    .onReceive(timer) { _ in
+                        if timeRemaining > 0 {
+                            timeRemaining -= 1
+                        } else if timeRemaining == 0 {
+                            if currentState == "In"{
+                                currentState = "Hold"
+                                timeRemaining = userHold
+                            } else if currentState == "Hold"{
+                                currentState = "Out"
+                                timeRemaining = userOut
+                            } else if currentState == "Out"{
+                                userRounds = userRounds - 1
+                                print(userRounds)
+                                if userRounds > 0{
+                                    currentState = "In"
+                                    timeRemaining = userIn
+                                } else {
+                                    currentState = "Done"
+                                    timeRemaining = 0
+                                }
+                            }
+                        }
                     }
                 }
             }
-        }
-        .onAppear{
-            print(user.breathingSelection)
         }
     }
 }
-
-
 //struct JournalView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        JournalView()

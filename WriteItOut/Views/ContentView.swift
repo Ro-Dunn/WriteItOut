@@ -27,7 +27,7 @@ struct ContentView: View {
                         .font(.title)
                 }
                 
-                NavigationLink(destination: ColorMap(colorSelected: false, thisColorSelected: "SystemColor")) {
+                NavigationLink(destination: ColorMap(colorSelected: false, thisColorSelected: "SystemColor", dateOfEntry: Date())) {
                     Text("Color Map")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()
