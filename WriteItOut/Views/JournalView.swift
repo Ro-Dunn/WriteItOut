@@ -99,28 +99,37 @@ struct SheetView: View {
                     HStack{
                         Button ("7-4-8") {
                             user.breathingSelection = sevenFourEight
+                            userIn = 7
+                            userHold = 4
+                            userOut = 8
                             setBreathe()
                         }
                         .padding()
-                        .background(user.breathingSelection == sevenFourEight ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .background(userIn == sevenFourEight.breatheIn ? Color("SystemColor") : Color("SytemSelectedColor"))
                         .clipShape(Capsule())
                         .foregroundColor(.white)
                         
                         Button ("5-5-5") {
                             user.breathingSelection = fiveFiveFive
+                            userIn = 5
+                            userHold = 5
+                            userOut = 5
                             setBreathe()
                         }
                         .padding()
-                        .background(user.breathingSelection == fiveFiveFive ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .background(userIn == fiveFiveFive.breatheIn ? Color("SystemColor") : Color("SytemSelectedColor"))
                         .clipShape(Capsule())
                         .foregroundColor(.white)
                         
                         Button ("4-7-4") {
                             user.breathingSelection = fourSevenFour
+                            userIn = 4
+                            userHold = 7
+                            userOut = 4
                             setBreathe()
                         }
                         .padding()
-                        .background(user.breathingSelection == fourSevenFour ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .background(userIn == fourSevenFour.breatheIn ? Color("SystemColor") : Color("SytemSelectedColor"))
                         .clipShape(Capsule())
                         .foregroundColor(.white)
                         
@@ -128,34 +137,36 @@ struct SheetView: View {
                     HStack{
                         Button("3 Rounds"){
                             user.breathingRounds = threeRounds
+                            userRounds = 3
                             setRounds()
                         }
                         .padding()
                         .foregroundColor(.white)
                         .frame(minWidth: 0, maxWidth: 150)
-                        .background(user.breathingRounds == threeRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .background(userRounds == threeRounds.roundCount ? Color("SystemColor") : Color("SytemSelectedColor"))
                         .clipShape(Capsule())
                         
                         Button("5 Rounds"){
                             user.breathingRounds = fiveRounds
+                            userRounds = 5
                             setRounds()
-                            
                         }
                         .padding()
                         .foregroundColor(.white)
                         .frame(minWidth: 0, maxWidth: 150)
-                        .background(user.breathingRounds == fiveRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .background(userRounds == fiveRounds.roundCount ? Color("SystemColor") : Color("SytemSelectedColor"))
                         .clipShape(Capsule())
                         
                         Button("8 Rounds"){
                             user.breathingRounds = eightRounds
+                            userRounds = 8
                             setRounds()
                             
                         }
                         .padding()
                         .foregroundColor(.white)
                         .frame(minWidth: 0, maxWidth: 150)
-                        .background(user.breathingRounds == eightRounds ? Color("SystemColor") : Color("SytemSelectedColor"))
+                        .background(userRounds == eightRounds.roundCount ? Color("SystemColor") : Color("SytemSelectedColor"))
                         .clipShape(Capsule())
                         
                     }
@@ -168,7 +179,7 @@ struct SheetView: View {
                             print(user.breathingRounds)
                         }
                         .padding(20)
-                        .background(Color("SystemColor"))
+                        .background(Color("SytemSelectedColor"))
                         .clipShape(Capsule())
                         .foregroundColor(.white)
                         .opacity(!settings ? 0 : 1)

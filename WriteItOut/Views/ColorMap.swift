@@ -34,6 +34,7 @@ struct ColorMap: View {
         self._thisColorSelected = State(initialValue: thisColorSelected)
         self._dateOfEntry = State(initialValue: dateOfEntry)
     }
+    
     var body: some View {
     
         VStack{
