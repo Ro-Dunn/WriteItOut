@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var user:User
+    @State var doMap = false
     
     var body: some View {
         NavigationView {
@@ -27,7 +28,7 @@ struct ContentView: View {
                         .font(.title)
                 }
                 
-                NavigationLink(destination: ColorMap(colorSelected: false, thisColorSelected: "SystemColor", dateOfEntry: Date())) {
+                NavigationLink(destination: ColorMap(colorSelected: false, thisColorSelected: "SystemColor", dateOfEntry: Date(), noneToday: doMap)) {
                     Text("Color Map")
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()

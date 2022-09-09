@@ -14,6 +14,7 @@
 		7997402228B7C3760031589C /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402128B7C3760031589C /* SaveView.swift */; };
 		7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7997402628B7E3850031589C /* DataModel.xcdatamodeld */; };
 		79D64FB228C2456F0077A8FE /* FeelingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D64FB128C2456F0077A8FE /* FeelingCircles.swift */; };
+		79D64FB928CB7CA50077A8FE /* MoodDataChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D64FB828CB7CA50077A8FE /* MoodDataChart.swift */; };
 		79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */; };
 		79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1528AE7DC500927D4C /* ContentView.swift */; };
 		79D84B1828AE7DCE00927D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D84B1728AE7DCE00927D4C /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		7997402128B7C3760031589C /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		7997402728B7E3850031589C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		79D64FB128C2456F0077A8FE /* FeelingCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCircles.swift; sourceTree = "<group>"; };
+		79D64FB828CB7CA50077A8FE /* MoodDataChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataChart.swift; sourceTree = "<group>"; };
 		79D84B1028AE7DC500927D4C /* WriteItOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WriteItOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutApp.swift; sourceTree = "<group>"; };
 		79D84B1528AE7DC500927D4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
+				79D64FB828CB7CA50077A8FE /* MoodDataChart.swift */,
 				7973DA7B28C0FDD1005E381D /* ColorMap.swift */,
 				7997402128B7C3760031589C /* SaveView.swift */,
 			);
@@ -314,6 +317,7 @@
 				79D84B4228AE8E9900927D4C /* User.swift in Sources */,
 				7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */,
 				7973DA7E28C10F77005E381D /* RawColors.swift in Sources */,
+				79D64FB928CB7CA50077A8FE /* MoodDataChart.swift in Sources */,
 				7997402228B7C3760031589C /* SaveView.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
 				7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */,
