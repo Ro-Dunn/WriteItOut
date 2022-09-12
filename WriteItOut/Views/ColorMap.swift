@@ -19,7 +19,7 @@ struct ColorMap: View {
     @EnvironmentObject var dataController:DataController
     @Environment(\.managedObjectContext) var moc
     @State private var didEntryToday = UserDefaults.standard.bool(forKey: "didEntryToday")//bool
-    @State private var canEntryToday = UserDefaults.standard.string(forKey: "entryToday")//date
+    @State private var lastEntry = UserDefaults.standard.string(forKey: "entryToday")//date of last entry
     
     @FetchRequest var daliy: FetchedResults<DailyColor>
     
@@ -67,6 +67,7 @@ struct ColorMap: View {
                 }
                 
                 Button("Save") {
+                    checkEntryAllowed()
                     noneToday.toggle()
                     let newColorData = DailyColor(context: dataController.container.viewContext)
                     df.dateStyle = DateFormatter.Style.short
@@ -103,8 +104,18 @@ struct ColorMap: View {
             try? dataController.save()
         }
     }
+    
+    func checkEntryAllowed(){
+        df.dateStyle = DateFormatter.Style.short
+        if didEntryToday == false && daliy.last?.dateString != lastEntry {
+                lastEntry = df.string(from: dateOfEntry)
+                noneToday = true
+                didEntryToday = true
+        } else {
+            //throw error saying HEY YOUVE ALREADY DONE ONE TODAY
+        }
+    }
 }
-
 
 
 
@@ -113,14 +124,3 @@ struct ColorMap_Previews: PreviewProvider {
         ColorMap(colorSelected: false, thisColorSelected: "SystemColor", dateOfEntry: Date(), noneToday: false)
     }
 }
-
-
-
-//List (daliy) { daily in
-//    Text("\(daily)")
-//        .listRowBackground(Color("\(daily.color ?? "SystemColor")"))
-//}
-
-//    func deleteItems(at offsets: IndexSet) {
-//        daliy.remove(atOffsets: offsets)
-//    }
