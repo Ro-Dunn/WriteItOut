@@ -10,9 +10,23 @@ import SwiftUI
 struct SaveView: View {
     @State var shareText: ShareText?
     @EnvironmentObject var userJournal: UserJournal
+    @Binding var shouldPopToRootView : Bool
     
     var body: some View {
         VStack {
+            
+            VStack {
+                Button (action: { self.shouldPopToRootView = false } ){
+                    Text("Finish")
+                }
+                .frame(minWidth: 0, maxWidth: 100)
+                .padding()
+                .background(Color("SystemColor"))
+                .clipShape(Capsule())
+                .foregroundColor(.white)
+        
+            }
+            
             
             Text("""
                  Hey, we don't save your entiries, in order to allow you to write without consequence.
@@ -57,8 +71,8 @@ struct ShareText: Identifiable {
 
 
 
-struct SaveView_Previews: PreviewProvider {
-    static var previews: some View {
-        SaveView()
-    }
-}
+//struct SaveView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SaveView()
+//    }
+//}

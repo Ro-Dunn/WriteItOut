@@ -34,9 +34,15 @@ class UserSettings: ObservableObject{
         }
     }
     
-    @Published var userEntryAllowed: Bool {
+    @Published var userEntryToday: String {
         didSet {
-            UserDefaults.standard.set(userEntryAllowed, forKey: "entryAllowed")
+            UserDefaults.standard.set(userEntryToday, forKey: "entryToday")
+        }
+    }
+    
+    @Published var didUserEntryToday: Bool {
+        didSet {
+            UserDefaults.standard.set(userEntryToday, forKey: "didEntryToday")
         }
     }
     
@@ -45,6 +51,7 @@ class UserSettings: ObservableObject{
         self.userPatternIn = UserDefaults.standard.object(forKey: "userIn") as? Int ?? 5
         self.userPatternHold = UserDefaults.standard.object(forKey: "userHold") as? Int ?? 5
         self.userPatternOut = UserDefaults.standard.object(forKey: "userOut") as? Int ?? 5
-        self.userEntryAllowed = UserDefaults.standard.object(forKey: "entryAllowed") as? Bool ?? true
+        self.userEntryToday = UserDefaults.standard.object(forKey: "entryToday") as? String ?? "1/1/03"
+        self.didUserEntryToday = UserDefaults.standard.object(forKey: "didEntryToday") as? Bool ?? true
     }
 }

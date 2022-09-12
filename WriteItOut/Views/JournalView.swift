@@ -16,6 +16,7 @@ class UserJournal: ObservableObject {
 struct JournalView: View {
     @EnvironmentObject var userJournal: UserJournal
     @State var wordCount:Int = 0
+    @Binding var rootIsActive : Bool
     @State var finishEnabled = true
     @State private var showingSheet = false
     @State var user:User
@@ -37,14 +38,16 @@ struct JournalView: View {
                     userJournal.currentJournal = ""
                 }
             HStack{
-                NavigationLink(destination: SaveView()) {
-                    Text("Done")
-                }
-                .frame(minWidth: 0, maxWidth: 100)
-                .padding()
-                .background(Color("SystemColor"))
-                .clipShape(Capsule())
-                .foregroundColor(.white)
+                NavigationLink(destination: SaveView(shouldPopToRootView: self.$rootIsActive)) {
+                            Text("Done")
+                        }
+                        .isDetailLink(false)
+//                        .navigationBarTitle("Two")
+                        .frame(minWidth: 0, maxWidth: 100)
+                        .padding()
+                        .background(Color("SystemColor"))
+                        .clipShape(Capsule())
+                        .foregroundColor(.white)
                 
                 Button("Breathe") {
                     finishEnabled.toggle()
@@ -236,6 +239,12 @@ struct SheetView: View {
         }
     }
 }
+
+
+
+
+
+
 //struct JournalView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        JournalView()

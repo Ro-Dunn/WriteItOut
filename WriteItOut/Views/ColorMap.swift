@@ -18,6 +18,8 @@ extension String: Identifiable {
 struct ColorMap: View {
     @EnvironmentObject var dataController:DataController
     @Environment(\.managedObjectContext) var moc
+    @State private var didEntryToday = UserDefaults.standard.bool(forKey: "didEntryToday")//bool
+    @State private var canEntryToday = UserDefaults.standard.string(forKey: "entryToday")//date
     
     @FetchRequest var daliy: FetchedResults<DailyColor>
     
@@ -66,13 +68,11 @@ struct ColorMap: View {
                 
                 Button("Save") {
                     noneToday.toggle()
-                    print(daliy)
                     let newColorData = DailyColor(context: dataController.container.viewContext)
                     df.dateStyle = DateFormatter.Style.short
                     newColorData.dateString = (df.string(from: dateOfEntry))
                     newColorData.color = thisColorSelected
                     print(newColorData)
-                    //save the date to colorData
                     try? dataController.save()
                 }
                 .frame(minWidth: 0, maxWidth: 100)
@@ -90,6 +90,7 @@ struct ColorMap: View {
                         Text(daily.dateString ?? "No entry found")
                         Spacer()
                     }
+                    .foregroundColor(Color(daily.color ?? "SystemColor"))
                 }
                 .onDelete(perform: removeColors)
             }
