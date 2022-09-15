@@ -14,7 +14,6 @@ struct SaveView: View {
     
     var body: some View {
         VStack {
-            
             VStack {
                 Button (action: { self.shouldPopToRootView = false } ){
                     Text("Finish")
@@ -24,7 +23,6 @@ struct SaveView: View {
                 .background(Color("SystemColor"))
                 .clipShape(Capsule())
                 .foregroundColor(.white)
-        
             }
             
             

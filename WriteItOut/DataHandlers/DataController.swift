@@ -36,7 +36,7 @@ class DataController: ObservableObject{
             do {
                 try context.save()
             } catch {
-                // Show some error here
+                print("Whoops")
             }
         }
     }

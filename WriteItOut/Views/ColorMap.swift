@@ -19,7 +19,7 @@ struct ColorMap: View {
     @EnvironmentObject var dataController:DataController
     @Environment(\.managedObjectContext) var moc
     @State private var didEntryToday = UserDefaults.standard.bool(forKey: "didEntryToday")//bool
-    @State private var canEntryToday = UserDefaults.standard.string(forKey: "entryToday")//date
+    @State private var lastEntry = UserDefaults.standard.string(forKey: "entryToday")//date of last entry
     
     @FetchRequest var daliy: FetchedResults<DailyColor>
     
@@ -67,13 +67,11 @@ struct ColorMap: View {
                 }
                 
                 Button("Save") {
-                    noneToday.toggle()
                     let newColorData = DailyColor(context: dataController.container.viewContext)
                     df.dateStyle = DateFormatter.Style.short
                     newColorData.dateString = (df.string(from: dateOfEntry))
                     newColorData.color = thisColorSelected
-                    print(newColorData)
-                    try? dataController.save()
+                    noneToday = didEntryToday
                 }
                 .frame(minWidth: 0, maxWidth: 100)
                 .padding()
@@ -81,8 +79,8 @@ struct ColorMap: View {
                 .clipShape(Capsule())
                 .foregroundColor(.white)
                 Spacer()
-                
             }
+            .onAppear(perform: checkEntryAllowed)
         } else {
             List {
                 ForEach(daliy) { daily in
@@ -103,8 +101,25 @@ struct ColorMap: View {
             try? dataController.save()
         }
     }
+    
+    func checkEntryAllowed(){
+        df.dateStyle = DateFormatter.Style.short
+        if (df.string(from: dateOfEntry)) == lastEntry {
+            try? dataController.save()
+            lastEntry = (df.string(from: dateOfEntry))
+            print("Last entry = yesterday")
+            didEntryToday = false
+        } else if daliy.last?.dateString == nil {
+            try? dataController.save()
+            lastEntry = df.string(from: dateOfEntry)
+            print("Last entry = nil")
+        } else {
+            noneToday = false
+            print("Last entry != nil or was done today")
+            //throw error saying HEY YOUVE ALREADY DONE ONE TODAY
+        }
+    }
 }
-
 
 
 
@@ -113,14 +128,3 @@ struct ColorMap_Previews: PreviewProvider {
         ColorMap(colorSelected: false, thisColorSelected: "SystemColor", dateOfEntry: Date(), noneToday: false)
     }
 }
-
-
-
-//List (daliy) { daily in
-//    Text("\(daily)")
-//        .listRowBackground(Color("\(daily.color ?? "SystemColor")"))
-//}
-
-//    func deleteItems(at offsets: IndexSet) {
-//        daliy.remove(atOffsets: offsets)
-//    }
