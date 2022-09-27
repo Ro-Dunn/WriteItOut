@@ -47,7 +47,10 @@ struct ColorMap: View {
                     .fill(colorSelected == true ? Color("\(thisColorSelected)") : Color("SystemColor"))
                     .frame(width: 100, height: 100)
                 Divider()
-                Spacer()
+                
+                Button("Show Me My Colors") {
+                    noneToday.toggle()
+                }.padding([.bottom, .top], 40)
                 
                 VStack {
                     Divider()
@@ -80,15 +83,16 @@ struct ColorMap: View {
                 .foregroundColor(.white)
                 Spacer()
             }
-            .onAppear(perform: checkEntryAllowed)
+           
         } else {
             List {
                 ForEach(daliy) { daily in
                     HStack {
                         Text(daily.dateString ?? "No entry found")
+                        Circle()
+                            .fill(Color(daily.color ?? "SystemColor"))
                         Spacer()
                     }
-                    .foregroundColor(Color(daily.color ?? "SystemColor"))
                 }
                 .onDelete(perform: removeColors)
             }
@@ -101,24 +105,6 @@ struct ColorMap: View {
             try? dataController.save()
         }
     }
-    
-    func checkEntryAllowed(){
-        df.dateStyle = DateFormatter.Style.short
-        if (df.string(from: dateOfEntry)) == lastEntry {
-            try? dataController.save()
-            lastEntry = (df.string(from: dateOfEntry))
-            print("Last entry = yesterday")
-            didEntryToday = false
-        } else if daliy.last?.dateString == nil {
-            try? dataController.save()
-            lastEntry = df.string(from: dateOfEntry)
-            print("Last entry = nil")
-        } else {
-            noneToday = false
-            print("Last entry != nil or was done today")
-            //throw error saying HEY YOUVE ALREADY DONE ONE TODAY
-        }
-    }
 }
 
 
@@ -128,3 +114,21 @@ struct ColorMap_Previews: PreviewProvider {
         ColorMap(colorSelected: false, thisColorSelected: "SystemColor", dateOfEntry: Date(), noneToday: false)
     }
 }
+
+
+//    func checkEntryAllowed(){
+//        df.dateStyle = DateFormatter.Style.short
+//        if (df.string(from: dateOfEntry)) == lastEntry {
+//            try? dataController.save()
+//            lastEntry = (df.string(from: dateOfEntry))
+//            print("Last entry = yesterday")
+//            didEntryToday = false
+//        } else if daliy.last?.dateString == nil {
+//            try? dataController.save()
+//            lastEntry = df.string(from: dateOfEntry)
+//            print("Last entry = nil")
+//        } else {
+//            noneToday = false
+//            print("Last entry != nil or was done today")
+//            //throw error saying HEY YOUVE ALREADY DONE ONE TODAY
+//        }

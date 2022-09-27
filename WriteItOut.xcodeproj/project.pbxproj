@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7949CDB028DE01BB00B4D06A /* bohemianBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949CDAF28DE01BB00B4D06A /* bohemianBackground.swift */; };
+		7949CDB528E3453900B4D06A /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7949CDB428E3453900B4D06A /* FLAnimatedImage */; };
 		7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7528BFB90E005E381D /* UserSettings.swift */; };
 		7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7928C0FB6E005E381D /* DataController.swift */; };
 		7973DA7C28C0FDD1005E381D /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7B28C0FDD1005E381D /* ColorMap.swift */; };
 		7973DA7E28C10F77005E381D /* RawColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7D28C10F77005E381D /* RawColors.swift */; };
+		7990843328D4BCE0007DA308 /* SetReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7990843228D4BCE0007DA308 /* SetReminders.swift */; };
 		7997402228B7C3760031589C /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402128B7C3760031589C /* SaveView.swift */; };
 		7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7997402628B7E3850031589C /* DataModel.xcdatamodeld */; };
 		79D64FB228C2456F0077A8FE /* FeelingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D64FB128C2456F0077A8FE /* FeelingCircles.swift */; };
@@ -45,10 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7949CDAF28DE01BB00B4D06A /* bohemianBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bohemianBackground.swift; sourceTree = "<group>"; };
 		7973DA7528BFB90E005E381D /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		7973DA7928C0FB6E005E381D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		7973DA7B28C0FDD1005E381D /* ColorMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
 		7973DA7D28C10F77005E381D /* RawColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawColors.swift; sourceTree = "<group>"; };
+		7990843228D4BCE0007DA308 /* SetReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetReminders.swift; sourceTree = "<group>"; };
 		7997402128B7C3760031589C /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		7997402728B7E3850031589C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		79D64FB128C2456F0077A8FE /* FeelingCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCircles.swift; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7949CDB528E3453900B4D06A /* FLAnimatedImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7949CDB228DE01F100B4D06A /* Backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				7949CDAF28DE01BB00B4D06A /* bohemianBackground.swift */,
+			);
+			path = Backgrounds;
+			sourceTree = "<group>";
+		};
 		79D64FB328C79C6E0077A8FE /* DataHandlers */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +120,7 @@
 		79D64FB428C79C910077A8FE /* InformationProviders */ = {
 			isa = PBXGroup;
 			children = (
+				7949CDB228DE01F100B4D06A /* Backgrounds */,
 				79D64FB128C2456F0077A8FE /* FeelingCircles.swift */,
 				79D84B4128AE8E9900927D4C /* User.swift */,
 				7973DA7D28C10F77005E381D /* RawColors.swift */,
@@ -118,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
+				7990843228D4BCE0007DA308 /* SetReminders.swift */,
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
 				79D64FB828CB7CA50077A8FE /* MoodDataChart.swift */,
 				7973DA7B28C0FDD1005E381D /* ColorMap.swift */,
@@ -200,6 +216,9 @@
 			dependencies = (
 			);
 			name = WriteItOut;
+			packageProductDependencies = (
+				7949CDB428E3453900B4D06A /* FLAnimatedImage */,
+			);
 			productName = WriteItOut;
 			productReference = 79D84B1028AE7DC500927D4C /* WriteItOut.app */;
 			productType = "com.apple.product-type.application";
@@ -272,6 +291,9 @@
 				Base,
 			);
 			mainGroup = 79D84B0728AE7DC500927D4C;
+			packageReferences = (
+				7949CDB328E3453900B4D06A /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
+			);
 			productRefGroup = 79D84B1128AE7DC500927D4C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -318,11 +340,13 @@
 				7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */,
 				7973DA7E28C10F77005E381D /* RawColors.swift in Sources */,
 				79D64FB928CB7CA50077A8FE /* MoodDataChart.swift in Sources */,
+				7990843328D4BCE0007DA308 /* SetReminders.swift in Sources */,
 				7997402228B7C3760031589C /* SaveView.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
 				7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */,
 				79D84B4828AFED1F00927D4C /* JournalView.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
+				7949CDB028DE01BB00B4D06A /* bohemianBackground.swift in Sources */,
 				79D64FB228C2456F0077A8FE /* FeelingCircles.swift in Sources */,
 				79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */,
 				7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */,
@@ -651,6 +675,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7949CDB328E3453900B4D06A /* XCRemoteSwiftPackageReference "FLAnimatedImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flipboard/FLAnimatedImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7949CDB428E3453900B4D06A /* FLAnimatedImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7949CDB328E3453900B4D06A /* XCRemoteSwiftPackageReference "FLAnimatedImage" */;
+			productName = FLAnimatedImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7997402628B7E3850031589C /* DataModel.xcdatamodeld */ = {

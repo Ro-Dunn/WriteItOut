@@ -11,35 +11,46 @@ struct SaveView: View {
     @State var shareText: ShareText?
     @EnvironmentObject var userJournal: UserJournal
     @Binding var shouldPopToRootView : Bool
+    @State var isWantingToShare: Bool
+    @State var date:Date
+    @State public var df = DateFormatter()
     
     var body: some View {
-        VStack {
+        ZStack{
+            bohemianBackground(backgroundTracker: 2)
             VStack {
-                Button (action: { self.shouldPopToRootView = false } ){
-                    Text("Finish")
-                }
-                .frame(minWidth: 0, maxWidth: 100)
-                .padding()
-                .background(Color("SystemColor"))
-                .clipShape(Capsule())
-                .foregroundColor(.white)
-            }
-            
-            
-            Text("""
-                 Hey, we don't save your entiries, in order to allow you to write without consequence.
+                CircleView(label: df.string(from: date))
+                    .frame(width: 100, height: 100)
                 
-                 But if you'd like to take the entry with you on your clipboard or share it through text to yourself or others- please feel free to do so!
-                """)
-            .padding()
-            
-            Button("Would you like to share your entry?") {
-                shareText = ShareText(text: userJournal.currentJournal)
+                HStack{
+                    Button (action: { self.shouldPopToRootView = false } ){
+                        Text("Finish")
+                    }
+                    .frame(minWidth: 0, maxWidth: 100)
+                    .padding()
+                    .background(Color("SystemColor"))
+                    .clipShape(Capsule())
+                    .foregroundColor(.white)
+                    
+                    Button("Share") {
+                        isWantingToShare = true
+                    }
+                    .frame(minWidth: 0, maxWidth: 100)
+                    .padding()
+                    .background(Color("SystemColor"))
+                    .clipShape(Capsule())
+                    .foregroundColor(.white)
+                    .alert("We won't save your entry...", isPresented: $isWantingToShare) {
+                        Button("Would you like to take it?") {
+                            shareText = ShareText(text: userJournal.currentJournal)
+                        }
+                        Button("Cancel", role: .cancel) { }
+                    }
+                }
+                .sheet(item: $shareText) { shareText in
+                    ActivityView(text: shareText.text)
+                }
             }
-            .padding()
-        }
-        .sheet(item: $shareText) { shareText in
-            ActivityView(text: shareText.text)
         }
     }
 }
