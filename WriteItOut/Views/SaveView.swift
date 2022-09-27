@@ -8,19 +8,27 @@
 import SwiftUI
 
 struct SaveView: View {
-    @State var shareText: ShareText?
     @EnvironmentObject var userJournal: UserJournal
+    @Environment(\.managedObjectContext) var moc
+    
     @Binding var shouldPopToRootView : Bool
+    
+    @State var shareText: ShareText?
     @State var isWantingToShare: Bool
     @State var date:Date
     @State public var df = DateFormatter()
     
+    
     var body: some View {
         ZStack{
             bohemianBackground(backgroundTracker: 2)
-            VStack {
-                CircleView(label: df.string(from: date))
-                    .frame(width: 100, height: 100)
+            VStack (spacing: 40){
+                Form{
+                    Text("Your Color Map")
+                        .font(.subheadline)
+                }
+                .cornerRadius(25)
+                .frame(minWidth: 0, idealWidth: 350, maxWidth: 350, minHeight: 0, idealHeight: 450, maxHeight: 450, alignment: .center)
                 
                 HStack{
                     Button (action: { self.shouldPopToRootView = false } ){

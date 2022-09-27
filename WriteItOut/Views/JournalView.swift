@@ -38,7 +38,7 @@ struct JournalView: View {
                     userJournal.currentJournal = ""
                 }
             HStack{
-                NavigationLink(destination: SaveView(shouldPopToRootView: self.$rootIsActive, isWantingToShare: false, date: Date())) {
+                NavigationLink(destination: SaveView(isWantingToShare: false, date: Date(), shouldPopToRootView: self.$rootIsActive)) {
                     Text("Done")
                 }
                 .isDetailLink(false)
@@ -187,7 +187,7 @@ struct JournalView: View {
                 } else {
                     VStack(spacing: 40){
                         
-                        
+                        AnimatedView()
                         
                     let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
                     Text("\(timeRemaining)")

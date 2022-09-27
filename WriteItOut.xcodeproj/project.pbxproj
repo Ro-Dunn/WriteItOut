@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		7949CDB028DE01BB00B4D06A /* bohemianBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949CDAF28DE01BB00B4D06A /* bohemianBackground.swift */; };
-		7949CDB528E3453900B4D06A /* FLAnimatedImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7949CDB428E3453900B4D06A /* FLAnimatedImage */; };
+		7949CDBA28E34BA300B4D06A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7949CDB928E34BA300B4D06A /* Lottie */; };
+		7949CDBC28E34C4200B4D06A /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 7949CDBB28E34C4200B4D06A /* loader.json */; };
+		7949CDBE28E34CE900B4D06A /* LottieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949CDBD28E34CE900B4D06A /* LottieLoader.swift */; };
+		7949CDC128E34E7A00B4D06A /* AnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949CDC028E34E7A00B4D06A /* AnimatedView.swift */; };
 		7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7528BFB90E005E381D /* UserSettings.swift */; };
 		7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7928C0FB6E005E381D /* DataController.swift */; };
 		7973DA7C28C0FDD1005E381D /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7B28C0FDD1005E381D /* ColorMap.swift */; };
@@ -17,7 +20,6 @@
 		7997402228B7C3760031589C /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402128B7C3760031589C /* SaveView.swift */; };
 		7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7997402628B7E3850031589C /* DataModel.xcdatamodeld */; };
 		79D64FB228C2456F0077A8FE /* FeelingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D64FB128C2456F0077A8FE /* FeelingCircles.swift */; };
-		79D64FB928CB7CA50077A8FE /* MoodDataChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D64FB828CB7CA50077A8FE /* MoodDataChart.swift */; };
 		79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */; };
 		79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1528AE7DC500927D4C /* ContentView.swift */; };
 		79D84B1828AE7DCE00927D4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79D84B1728AE7DCE00927D4C /* Assets.xcassets */; };
@@ -49,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		7949CDAF28DE01BB00B4D06A /* bohemianBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bohemianBackground.swift; sourceTree = "<group>"; };
+		7949CDBB28E34C4200B4D06A /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
+		7949CDBD28E34CE900B4D06A /* LottieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoader.swift; sourceTree = "<group>"; };
+		7949CDC028E34E7A00B4D06A /* AnimatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedView.swift; sourceTree = "<group>"; };
 		7973DA7528BFB90E005E381D /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		7973DA7928C0FB6E005E381D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		7973DA7B28C0FDD1005E381D /* ColorMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
@@ -57,7 +62,6 @@
 		7997402128B7C3760031589C /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		7997402728B7E3850031589C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		79D64FB128C2456F0077A8FE /* FeelingCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCircles.swift; sourceTree = "<group>"; };
-		79D64FB828CB7CA50077A8FE /* MoodDataChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodDataChart.swift; sourceTree = "<group>"; };
 		79D84B1028AE7DC500927D4C /* WriteItOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WriteItOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutApp.swift; sourceTree = "<group>"; };
 		79D84B1528AE7DC500927D4C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7949CDB528E3453900B4D06A /* FLAnimatedImage in Frameworks */,
+				7949CDBA28E34BA300B4D06A /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +128,7 @@
 				79D64FB128C2456F0077A8FE /* FeelingCircles.swift */,
 				79D84B4128AE8E9900927D4C /* User.swift */,
 				7973DA7D28C10F77005E381D /* RawColors.swift */,
+				7949CDBD28E34CE900B4D06A /* LottieLoader.swift */,
 				79D84B4328AE8F4400927D4C /* BreathingPatterns.swift */,
 			);
 			path = InformationProviders;
@@ -135,9 +140,9 @@
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
 				7990843228D4BCE0007DA308 /* SetReminders.swift */,
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
-				79D64FB828CB7CA50077A8FE /* MoodDataChart.swift */,
 				7973DA7B28C0FDD1005E381D /* ColorMap.swift */,
 				7997402128B7C3760031589C /* SaveView.swift */,
+				7949CDC028E34E7A00B4D06A /* AnimatedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				79D64FB428C79C910077A8FE /* InformationProviders */,
 				79D64FB328C79C6E0077A8FE /* DataHandlers */,
 				79D84B1728AE7DCE00927D4C /* Assets.xcassets */,
+				7949CDBB28E34C4200B4D06A /* loader.json */,
 				79D84B1928AE7DCE00927D4C /* Preview Content */,
 			);
 			path = WriteItOut;
@@ -217,7 +223,7 @@
 			);
 			name = WriteItOut;
 			packageProductDependencies = (
-				7949CDB428E3453900B4D06A /* FLAnimatedImage */,
+				7949CDB928E34BA300B4D06A /* Lottie */,
 			);
 			productName = WriteItOut;
 			productReference = 79D84B1028AE7DC500927D4C /* WriteItOut.app */;
@@ -292,7 +298,7 @@
 			);
 			mainGroup = 79D84B0728AE7DC500927D4C;
 			packageReferences = (
-				7949CDB328E3453900B4D06A /* XCRemoteSwiftPackageReference "FLAnimatedImage" */,
+				7949CDB828E34BA300B4D06A /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 79D84B1128AE7DC500927D4C /* Products */;
 			projectDirPath = "";
@@ -310,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7949CDBC28E34C4200B4D06A /* loader.json in Resources */,
 				79D84B1B28AE7DCE00927D4C /* Preview Assets.xcassets in Resources */,
 				79D84B1828AE7DCE00927D4C /* Assets.xcassets in Resources */,
 			);
@@ -339,14 +346,15 @@
 				79D84B4228AE8E9900927D4C /* User.swift in Sources */,
 				7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */,
 				7973DA7E28C10F77005E381D /* RawColors.swift in Sources */,
-				79D64FB928CB7CA50077A8FE /* MoodDataChart.swift in Sources */,
 				7990843328D4BCE0007DA308 /* SetReminders.swift in Sources */,
 				7997402228B7C3760031589C /* SaveView.swift in Sources */,
 				79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */,
 				7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */,
 				79D84B4828AFED1F00927D4C /* JournalView.swift in Sources */,
+				7949CDBE28E34CE900B4D06A /* LottieLoader.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
 				7949CDB028DE01BB00B4D06A /* bohemianBackground.swift in Sources */,
+				7949CDC128E34E7A00B4D06A /* AnimatedView.swift in Sources */,
 				79D64FB228C2456F0077A8FE /* FeelingCircles.swift in Sources */,
 				79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */,
 				7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */,
@@ -677,21 +685,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7949CDB328E3453900B4D06A /* XCRemoteSwiftPackageReference "FLAnimatedImage" */ = {
+		7949CDB828E34BA300B4D06A /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Flipboard/FLAnimatedImage";
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 3.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7949CDB428E3453900B4D06A /* FLAnimatedImage */ = {
+		7949CDB928E34BA300B4D06A /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7949CDB328E3453900B4D06A /* XCRemoteSwiftPackageReference "FLAnimatedImage" */;
-			productName = FLAnimatedImage;
+			package = 7949CDB828E34BA300B4D06A /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 

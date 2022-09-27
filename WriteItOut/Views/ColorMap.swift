@@ -33,7 +33,7 @@ struct ColorMap: View {
         let df = DateFormatter()
         df.dateStyle = .short
         let dateString = df.string(from: Date())
-        _daliy = FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "dateString == %@", dateString))
+        _daliy = FetchRequest(sortDescriptors: [])
         self._colorSelected = State(initialValue: colorSelected)
         self._thisColorSelected = State(initialValue: thisColorSelected)
         self._dateOfEntry = State(initialValue: dateOfEntry)
