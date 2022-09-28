@@ -9,52 +9,26 @@ import SwiftUI
 import UserNotifications
 
 struct SetReminders: View {
-    @State var date = DateComponents()
+//    @State var date = DateComponents()
+    @State var datePickerDate = Date()
+    @State var triggerComponents:DateComponents?
     @AppStorage("alarm") var alarm: String = ""
+    init(){
+        retriveNotifications()
+    }
     var body: some View {
         Text("When Would You Like A Reminder?")
             .font(.subheadline)
         Form {
             Section("Notification Prefereance") {
-                Picker("Schedule Reminder", selection: $date) {
-                    Group{
-                        Text("1 am").tag(DateComponents(hour: 1))
-                        Text("2 am").tag(DateComponents(hour: 2))
-                        Text("3 am").tag(DateComponents(hour: 3))
-                        Text("4 am").tag(DateComponents(hour: 4))
-                        Text("5 am").tag(DateComponents(hour: 5))
-                        Text("6 am").tag(DateComponents(hour: 6))
-                    }
-                    Group{
-                        Text("7 am").tag(DateComponents(hour: 7))
-                        Text("8 am").tag(DateComponents(hour: 8))
-                        Text("9 am").tag(DateComponents(hour: 9))
-                        Text("10 am").tag(DateComponents(hour: 10))
-                        Text("11 am").tag(DateComponents(hour: 11))
-                        Text("12 pm").tag(DateComponents(hour: 12))
-                    }
-                    Group{
-                        Text("1 pm").tag(DateComponents(hour: 13))
-                        Text("2 pm").tag(DateComponents(hour: 14))
-                        Text("3 pm").tag(DateComponents(hour: 15))
-                        Text("4 pm").tag(DateComponents(hour: 16))
-                        Text("5 pm").tag(DateComponents(hour: 17))
-                        Text("6 pm").tag(DateComponents(hour: 18))
-                    }
-                    Group {
-                        Text("7 pm").tag(DateComponents(hour: 19))
-                        Text("8 pm").tag(DateComponents(hour: 20))
-                        Text("9 pm").tag(DateComponents(hour: 21))
-                        Text("10 pm").tag(DateComponents(hour: 22))
-                        Text("11 pm").tag(DateComponents(hour: 23))
-                        Text("12 am").tag(DateComponents(hour: 24))
-                    }
+                DatePicker( selection: $datePickerDate, displayedComponents: .hourAndMinute){
+                    Text("Date Picker")
                 }
-                .pickerStyle(WheelPickerStyle())
             }
             Button("Set Notifications") {
                 reqeustPermiss()
                 setNotif()
+                retriveNotifications()
                 print(alarm)
             }
             Button("Cancel Notifications") {
@@ -63,13 +37,21 @@ struct SetReminders: View {
             }
             
             Section{
-                if alarm == "" {
-                    Text("No alarm set.")
+                if let triggerComponents = triggerComponents, let hour = triggerComponents.hour, let minute = triggerComponents.minute {
+                    Text("You have an alarm set for \(hour) : \(minute)")
                 } else {
-                    Text("You have an alarm set.")
+                    //
                 }
             }
         }//end form
+    }
+    
+    func  retriveNotifications() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            if let first = requests.first, let calendarTrigger = first.trigger as? UNCalendarNotificationTrigger {
+               triggerComponents = calendarTrigger.dateComponents
+            }
+        }
     }
     
     func deleteAlarm(){
@@ -94,8 +76,12 @@ struct SetReminders: View {
         content.title = "Write It Out"
         content.subtitle = "Take Time To Journal Today"
         content.sound = UNNotificationSound.default
+        let hour = Calendar.current.component(.hour, from: datePickerDate)
+        let minute = Calendar.current.component(.minute, from: datePickerDate)
+        let components = DateComponents(hour: hour,
+                                        minute: minute)
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
