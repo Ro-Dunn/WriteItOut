@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7901744D28E3D3CC004D5134 /* 52644-checkmark-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 7901744C28E3D3CC004D5134 /* 52644-checkmark-box.json */; };
 		7949CDB028DE01BB00B4D06A /* bohemianBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949CDAF28DE01BB00B4D06A /* bohemianBackground.swift */; };
 		7949CDBA28E34BA300B4D06A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7949CDB928E34BA300B4D06A /* Lottie */; };
 		7949CDBC28E34C4200B4D06A /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 7949CDBB28E34C4200B4D06A /* loader.json */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7901744C28E3D3CC004D5134 /* 52644-checkmark-box.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "52644-checkmark-box.json"; sourceTree = "<group>"; };
 		7949CDAF28DE01BB00B4D06A /* bohemianBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bohemianBackground.swift; sourceTree = "<group>"; };
 		7949CDBB28E34C4200B4D06A /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		7949CDBD28E34CE900B4D06A /* LottieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoader.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				79D64FB328C79C6E0077A8FE /* DataHandlers */,
 				79D84B1728AE7DCE00927D4C /* Assets.xcassets */,
 				7949CDBB28E34C4200B4D06A /* loader.json */,
+				7901744C28E3D3CC004D5134 /* 52644-checkmark-box.json */,
 				79D84B1928AE7DCE00927D4C /* Preview Content */,
 			);
 			path = WriteItOut;
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7949CDBC28E34C4200B4D06A /* loader.json in Resources */,
+				7901744D28E3D3CC004D5134 /* 52644-checkmark-box.json in Resources */,
 				79D84B1B28AE7DCE00927D4C /* Preview Assets.xcassets in Resources */,
 				79D84B1828AE7DCE00927D4C /* Assets.xcassets in Resources */,
 			);

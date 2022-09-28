@@ -38,7 +38,7 @@ struct JournalView: View {
                     userJournal.currentJournal = ""
                 }
             HStack{
-                NavigationLink(destination: SaveView(isWantingToShare: false, date: Date(), shouldPopToRootView: self.$rootIsActive)) {
+                NavigationLink(destination: SaveView(shouldPopToRootView: self.$rootIsActive, isWantingToShare: false, date: Date(), thisColorSelected: "SystemColor", colorSelected: false)) {
                     Text("Done")
                 }
                 .isDetailLink(false)

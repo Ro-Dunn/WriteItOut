@@ -12,7 +12,7 @@ struct SetReminders: View {
     @State var date = DateComponents()
     @AppStorage("alarm") var alarm: String = ""
     var body: some View {
-        Text("When Would You A Reminder?")
+        Text("When Would You Like A Reminder?")
             .font(.subheadline)
         Form {
             Section("Notification Prefereance") {
@@ -61,7 +61,15 @@ struct SetReminders: View {
                 deleteAlarm()
                 print(alarm)
             }
-        }
+            
+            Section{
+                if alarm == "" {
+                    Text("No alarm set.")
+                } else {
+                    Text("You have an alarm set.")
+                }
+            }
+        }//end form
     }
     
     func deleteAlarm(){
@@ -87,12 +95,10 @@ struct SetReminders: View {
         content.subtitle = "Take Time To Journal Today"
         content.sound = UNNotificationSound.default
         
-        // show this notification five seconds from now
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
         
-        // choose a random identifier
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        // add our notification request
+        
         UNUserNotificationCenter.current().add(request)
         alarm = request.identifier
     }
