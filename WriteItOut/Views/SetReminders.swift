@@ -9,13 +9,13 @@ import SwiftUI
 import UserNotifications
 
 struct SetReminders: View {
-//    @State var date = DateComponents()
     @State var datePickerDate = Date()
     @State var triggerComponents:DateComponents?
-    @AppStorage("alarm") var alarm: String = ""
-    init(){
-        retriveNotifications()
-    }
+    @State var center = UNUserNotificationCenter.current()
+    @AppStorage("alarm") var alarm: String?
+    @State var whatTime:String = ""
+
+    
     var body: some View {
         Text("When Would You Like A Reminder?")
             .font(.subheadline)
@@ -28,43 +28,30 @@ struct SetReminders: View {
             Button("Set Notifications") {
                 reqeustPermiss()
                 setNotif()
-                retriveNotifications()
-                print(alarm)
+                UserDefaults.standard.set(self.alarm, forKey: "alarm")
             }
             Button("Cancel Notifications") {
-                deleteAlarm()
-                print(alarm)
+                if let alarm = alarm {
+                    // If there is already an alarm set, cancel it
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm])
+                }
+                alarm = nil
+                whatTime = ""
             }
             
             Section{
-                if let triggerComponents = triggerComponents, let hour = triggerComponents.hour, let minute = triggerComponents.minute {
-                    Text("You have an alarm set for \(hour) : \(minute)")
-                } else {
-                    //
-                }
-            }
-        }//end form
-    }
-    
-    func  retriveNotifications() {
-        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
-            if let first = requests.first, let calendarTrigger = first.trigger as? UNCalendarNotificationTrigger {
-               triggerComponents = calendarTrigger.dateComponents
+                Text("You have a daily remider set for \(whatTime)")
             }
         }
-    }
+    }//end form
     
-    func deleteAlarm(){
-        var callIt: [String] = []
-        callIt.append(alarm)
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: callIt)
-        alarm = ""
-        callIt = []
+    func deleteAlarms(at offsets: IndexSet) {
     }
     
     func reqeustPermiss(){
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
+                UserDefaults.standard.set(self.alarm, forKey: "alarm")
                 //Good Job
             } else if let error = error {
                 print(error.localizedDescription)
@@ -86,6 +73,12 @@ struct SetReminders: View {
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request)
+        
+        if let alarm = alarm {
+            // If there is already an alarm set, cancel it
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [alarm])
+        }
+        whatTime = "\(String(hour)):\(String(minute))"
         alarm = request.identifier
     }
 }

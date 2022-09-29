@@ -9,6 +9,7 @@ import SwiftUI
 import Lottie
 
 struct LottieView: UIViewRepresentable {
+    @EnvironmentObject var user: User
     let lottieFile: String
     let animationView = AnimationView()
     
@@ -20,6 +21,18 @@ struct LottieView: UIViewRepresentable {
         animationView.play()
         
         animationView.loopMode = .loop
+        
+        if user.breathingSelection == fiveFiveFive{
+        
+        animationView.animationSpeed = 0.55
+            
+        } else if user.breathingSelection == sevenFourEight{
+            //get value from appStorage tracker
+            
+        } else if user.breathingSelection == fourSevenFour {
+            
+        }
+        
         
         view.addSubview(animationView)
         
