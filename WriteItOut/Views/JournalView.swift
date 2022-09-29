@@ -22,47 +22,49 @@ struct JournalView: View {
     @State var user:User
     
     var body: some View {
-        VStack {
-            Text("\(wordCount)")
-                .multilineTextAlignment(.trailing)
-            
-            TextEditor(text: $userJournal.currentJournal)
-                .font(.body)
-                .padding()
-                .padding(.top, 20)
-                .onChange(of: userJournal.currentJournal) { value in
-                    let words = userJournal.currentJournal.split { $0 == " " || $0.isNewline }
-                    self.wordCount = words.count
-                }
-                .onAppear{
-                    userJournal.currentJournal = ""
-                }
-            HStack{
-                NavigationLink(destination: SaveView(shouldPopToRootView: self.$rootIsActive, isWantingToShare: false, date: Date(), thisColorSelected: "SystemColor", colorSelected: false)) {
-                    Text("Done")
-                }
-                .isDetailLink(false)
-                //                        .navigationBarTitle("Two")
-                .frame(minWidth: 0, maxWidth: 100)
-                .padding()
-                .background(Color("SystemColor"))
-                .clipShape(Capsule())
-                .foregroundColor(.white)
-                .onAppear{
-                    finishEnabled = true
-                }
-                .toolbar {
-                    ToolbarItem() {
-                        Button("Breathe") {
-                            finishEnabled.toggle()
-                            showingSheet.toggle()
-                        }
-                        .sheet(isPresented: $showingSheet) {
-                            SheetView(user: user, timeRemaining:user.breathingSelection.breatheIn )
+        ZStack{
+            VStack {
+                Text("\(wordCount)")
+                    .multilineTextAlignment(.trailing)
+                
+                TextEditor(text: $userJournal.currentJournal)
+                    .font(.body)
+                    .padding()
+                    .padding(.top, 20)
+                    .onChange(of: userJournal.currentJournal) { value in
+                        let words = userJournal.currentJournal.split { $0 == " " || $0.isNewline }
+                        self.wordCount = words.count
+                    }
+                    .onAppear{
+                        userJournal.currentJournal = ""
+                    }
+                HStack{
+                    NavigationLink(destination: SaveView(shouldPopToRootView: self.$rootIsActive, isWantingToShare: false, date: Date(), thisColorSelected: "SystemColor", colorSelected: false)) {
+                        Text("Done")
+                    }
+                    .isDetailLink(false)
+                    //                        .navigationBarTitle("Two")
+                    .frame(minWidth: 0, maxWidth: 100)
+                    .padding()
+                    .background(Color("SystemColor"))
+                    .clipShape(Capsule())
+                    .foregroundColor(.white)
+                    .onAppear{
+                        finishEnabled = true
+                    }
+                    .toolbar {
+                        ToolbarItem() {
+                            Button("Breathe") {
+                                finishEnabled.toggle()
+                                showingSheet.toggle()
+                            }
+                            .sheet(isPresented: $showingSheet) {
+                                SheetView(user: user, timeRemaining:user.breathingSelection.breatheIn )
+                            }
                         }
                     }
+                    .padding()
                 }
-                .padding()
             }
         }
     }
@@ -73,7 +75,7 @@ struct JournalView: View {
         @Environment(\.dismiss) var dismiss
         @State var user:User
         @State var settings = true
-        @State var currentState = "In"
+        @AppStorage("tracker") var currentState = "In"
         @State var timeRemaining:Int
         
         //    @AppStorage("rounds") private var rounds = 0
@@ -189,15 +191,15 @@ struct JournalView: View {
                         
                         AnimatedView()
                         
-                    let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
-                    Text("\(timeRemaining)")
+                        let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
+                        Text("\(timeRemaining)")
                             .padding()
                             .cornerRadius(40)
                             .font(.title)
                             .opacity(settings ? 0 : 1)
-
                         
-                    Button ("\(currentState)") {
+                        
+                        Button ("\(currentState)") {
                         }
                         .frame(minWidth: 0, maxWidth: 300)
                         .padding()

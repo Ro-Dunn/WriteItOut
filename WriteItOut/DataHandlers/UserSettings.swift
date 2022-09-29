@@ -46,6 +46,12 @@ class UserSettings: ObservableObject{
         }
     }
     
+    @Published var alarms: [String] {
+        didSet {
+            UserDefaults.standard.set(alarms, forKey: "alarm")
+        }
+    }
+    
     init() {
         self.userRounds = UserDefaults.standard.object(forKey: "userRounds") as? Int ?? 3
         self.userPatternIn = UserDefaults.standard.object(forKey: "userIn") as? Int ?? 5
@@ -53,5 +59,6 @@ class UserSettings: ObservableObject{
         self.userPatternOut = UserDefaults.standard.object(forKey: "userOut") as? Int ?? 5
         self.userEntryToday = UserDefaults.standard.object(forKey: "entryToday") as? String ?? "1/1/03"
         self.didUserEntryToday = UserDefaults.standard.object(forKey: "didEntryToday") as? Bool ?? true
+        self.alarms = UserDefaults.standard.object(forKey: "alarm") as? [String] ?? ["No alarm available"]
     }
 }

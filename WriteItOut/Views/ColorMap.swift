@@ -41,17 +41,13 @@ struct ColorMap: View {
     }
     
     var body: some View {
-        if noneToday == true {
+        if noneToday == false {
             VStack{
                 Circle()
                     .fill(colorSelected == true ? Color("\(thisColorSelected)") : Color("SystemColor"))
                     .frame(width: 100, height: 100)
                 Divider()
-                
-                Button("Show Me My Colors") {
-                    noneToday.toggle()
-                }.padding([.bottom, .top], 40)
-                
+
                 VStack {
                     Divider()
                     ScrollView(.horizontal) {
@@ -66,7 +62,6 @@ struct ColorMap: View {
                             
                         }.padding()
                     }.frame(height: 100)
-                    Divider()
                 }
                 
                 Button("Save") {
@@ -74,7 +69,7 @@ struct ColorMap: View {
                     df.dateStyle = DateFormatter.Style.short
                     newColorData.dateString = (df.string(from: dateOfEntry))
                     newColorData.color = thisColorSelected
-                    noneToday = didEntryToday
+                    noneToday = !didEntryToday
                 }
                 .frame(minWidth: 0, maxWidth: 100)
                 .padding()
@@ -83,9 +78,14 @@ struct ColorMap: View {
                 .foregroundColor(.white)
                 Spacer()
             }
-           
+            
         } else {
-            List {
+            
+            Button("Make Entry"){
+                noneToday = didEntryToday
+            }
+
+            Form{
                 ForEach(daliy) { daily in
                     HStack {
                         Text(daily.dateString ?? "No entry found")
@@ -115,20 +115,3 @@ struct ColorMap_Previews: PreviewProvider {
     }
 }
 
-
-//    func checkEntryAllowed(){
-//        df.dateStyle = DateFormatter.Style.short
-//        if (df.string(from: dateOfEntry)) == lastEntry {
-//            try? dataController.save()
-//            lastEntry = (df.string(from: dateOfEntry))
-//            print("Last entry = yesterday")
-//            didEntryToday = false
-//        } else if daliy.last?.dateString == nil {
-//            try? dataController.save()
-//            lastEntry = df.string(from: dateOfEntry)
-//            print("Last entry = nil")
-//        } else {
-//            noneToday = false
-//            print("Last entry != nil or was done today")
-//            //throw error saying HEY YOUVE ALREADY DONE ONE TODAY
-//        }
