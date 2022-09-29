@@ -21,7 +21,7 @@ struct ColorMap: View {
     @State private var didEntryToday = UserDefaults.standard.bool(forKey: "didEntryToday")//bool
     @State private var lastEntry = UserDefaults.standard.string(forKey: "entryToday")//date of last entry
     
-    @FetchRequest var daliy: FetchedResults<DailyColor>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "dateString", ascending: false)]) var daliy: FetchedResults<DailyColor>
     
     @State public var colorSelected:Bool
     @State public var thisColorSelected:String //dailyColor.color
@@ -33,7 +33,7 @@ struct ColorMap: View {
         let df = DateFormatter()
         df.dateStyle = .short
         let dateString = df.string(from: Date())
-        _daliy = FetchRequest(sortDescriptors: [])
+        _daliy = FetchRequest(sortDescriptors: [NSSortDescriptor(key: "dateString", ascending: true)])
         self._colorSelected = State(initialValue: colorSelected)
         self._thisColorSelected = State(initialValue: thisColorSelected)
         self._dateOfEntry = State(initialValue: dateOfEntry)
