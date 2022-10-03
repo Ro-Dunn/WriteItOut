@@ -23,6 +23,7 @@ struct SaveView: View {
     @State public var dateOfEntry:Date = Date()
     @State var showMapElements = true
     @State private var showingAlert = false
+    @State var state = "In"
     
     
     var body: some View {

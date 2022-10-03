@@ -22,17 +22,7 @@ struct LottieView: UIViewRepresentable {
         
         animationView.loopMode = .loop
         
-        if user.breathingSelection == fiveFiveFive{
-        
-        animationView.animationSpeed = 0.55
-            
-        } else if user.breathingSelection == sevenFourEight{
-            //get value from appStorage tracker
-            
-        } else if user.breathingSelection == fourSevenFour {
-            
-        }
-        
+        animationView.animationSpeed = 0.45
         
         view.addSubview(animationView)
         

@@ -12,7 +12,7 @@
 		7949CDBA28E34BA300B4D06A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 7949CDB928E34BA300B4D06A /* Lottie */; };
 		7949CDBC28E34C4200B4D06A /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 7949CDBB28E34C4200B4D06A /* loader.json */; };
 		7949CDBE28E34CE900B4D06A /* LottieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949CDBD28E34CE900B4D06A /* LottieLoader.swift */; };
-		7949CDC128E34E7A00B4D06A /* AnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7949CDC028E34E7A00B4D06A /* AnimatedView.swift */; };
+		7970885C28E73679005D866D /* 45038-loading-blue-spinning-circles.json in Resources */ = {isa = PBXBuildFile; fileRef = 7970885B28E73679005D866D /* 45038-loading-blue-spinning-circles.json */; };
 		7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7528BFB90E005E381D /* UserSettings.swift */; };
 		7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7928C0FB6E005E381D /* DataController.swift */; };
 		7973DA7C28C0FDD1005E381D /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7973DA7B28C0FDD1005E381D /* ColorMap.swift */; };
@@ -55,7 +55,7 @@
 		7949CDAF28DE01BB00B4D06A /* bohemianBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bohemianBackground.swift; sourceTree = "<group>"; };
 		7949CDBB28E34C4200B4D06A /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		7949CDBD28E34CE900B4D06A /* LottieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieLoader.swift; sourceTree = "<group>"; };
-		7949CDC028E34E7A00B4D06A /* AnimatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedView.swift; sourceTree = "<group>"; };
+		7970885B28E73679005D866D /* 45038-loading-blue-spinning-circles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "45038-loading-blue-spinning-circles.json"; sourceTree = "<group>"; };
 		7973DA7528BFB90E005E381D /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		7973DA7928C0FB6E005E381D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		7973DA7B28C0FDD1005E381D /* ColorMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
@@ -144,7 +144,6 @@
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
 				7973DA7B28C0FDD1005E381D /* ColorMap.swift */,
 				7997402128B7C3760031589C /* SaveView.swift */,
-				7949CDC028E34E7A00B4D06A /* AnimatedView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +178,7 @@
 				79D84B1728AE7DCE00927D4C /* Assets.xcassets */,
 				7949CDBB28E34C4200B4D06A /* loader.json */,
 				7901744C28E3D3CC004D5134 /* 52644-checkmark-box.json */,
+				7970885B28E73679005D866D /* 45038-loading-blue-spinning-circles.json */,
 				79D84B1928AE7DCE00927D4C /* Preview Content */,
 			);
 			path = WriteItOut;
@@ -321,6 +321,7 @@
 			files = (
 				7949CDBC28E34C4200B4D06A /* loader.json in Resources */,
 				7901744D28E3D3CC004D5134 /* 52644-checkmark-box.json in Resources */,
+				7970885C28E73679005D866D /* 45038-loading-blue-spinning-circles.json in Resources */,
 				79D84B1B28AE7DCE00927D4C /* Preview Assets.xcassets in Resources */,
 				79D84B1828AE7DCE00927D4C /* Assets.xcassets in Resources */,
 			);
@@ -358,7 +359,6 @@
 				7949CDBE28E34CE900B4D06A /* LottieLoader.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
 				7949CDB028DE01BB00B4D06A /* bohemianBackground.swift in Sources */,
-				7949CDC128E34E7A00B4D06A /* AnimatedView.swift in Sources */,
 				79D64FB228C2456F0077A8FE /* FeelingCircles.swift in Sources */,
 				79D84B4428AE8F4400927D4C /* BreathingPatterns.swift in Sources */,
 				7973DA7628BFB90E005E381D /* UserSettings.swift in Sources */,

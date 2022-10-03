@@ -75,7 +75,7 @@ struct JournalView: View {
         @Environment(\.dismiss) var dismiss
         @State var user:User
         @State var settings = true
-        @AppStorage("tracker") var currentState = "In"
+        @AppStorage("currentState") var currentState = "In"
         @State var timeRemaining:Int
         
         //    @AppStorage("rounds") private var rounds = 0
@@ -176,6 +176,7 @@ struct JournalView: View {
                             Button ("Start") {
                                 settings.toggle()
                                 timeRemaining = userIn
+                                currentState = "In"
                                 print(user.breathingSelection)
                                 print(user.breathingRounds)
                             }
@@ -189,7 +190,10 @@ struct JournalView: View {
                 } else {
                     VStack(spacing: 40){
                         
-                        AnimatedView()
+                        LottieView(lottieFile: "loader")
+                            .frame(width: 300, height: 300)
+                        
+                        
                         
                         let timer = Timer.publish(every: 1.2, on: .main, in: .common).autoconnect()
                         Text("\(timeRemaining)")
