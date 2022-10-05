@@ -11,11 +11,14 @@ import UIKit
 
 struct CircleView: View {
     @State var label: String
+    @State var color: String
     var body: some View {
         ZStack {
             Circle()
                 .fill(Color("\(label)"))
                 .frame(width: 70, height: 70)
+            Text("\(color)")
+                .foregroundColor(.white)
         }
     }
 }

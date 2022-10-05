@@ -20,6 +20,7 @@
 		7990843328D4BCE0007DA308 /* SetReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7990843228D4BCE0007DA308 /* SetReminders.swift */; };
 		7997402228B7C3760031589C /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997402128B7C3760031589C /* SaveView.swift */; };
 		7997402828B7E3850031589C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7997402628B7E3850031589C /* DataModel.xcdatamodeld */; };
+		79B00B1628EB31F1008964A3 /* IntructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B00B1528EB31F1008964A3 /* IntructionView.swift */; };
 		79D64FB228C2456F0077A8FE /* FeelingCircles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D64FB128C2456F0077A8FE /* FeelingCircles.swift */; };
 		79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */; };
 		79D84B1628AE7DC500927D4C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D84B1528AE7DC500927D4C /* ContentView.swift */; };
@@ -63,6 +64,7 @@
 		7990843228D4BCE0007DA308 /* SetReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetReminders.swift; sourceTree = "<group>"; };
 		7997402128B7C3760031589C /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 		7997402728B7E3850031589C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		79B00B1528EB31F1008964A3 /* IntructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntructionView.swift; sourceTree = "<group>"; };
 		79D64FB128C2456F0077A8FE /* FeelingCircles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingCircles.swift; sourceTree = "<group>"; };
 		79D84B1028AE7DC500927D4C /* WriteItOut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WriteItOut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79D84B1328AE7DC500927D4C /* WriteItOutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteItOutApp.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		79D64FB528C79CCB0077A8FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				79B00B1528EB31F1008964A3 /* IntructionView.swift */,
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
 				7990843228D4BCE0007DA308 /* SetReminders.swift */,
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
@@ -357,6 +360,7 @@
 				7973DA7A28C0FB6E005E381D /* DataController.swift in Sources */,
 				79D84B4828AFED1F00927D4C /* JournalView.swift in Sources */,
 				7949CDBE28E34CE900B4D06A /* LottieLoader.swift in Sources */,
+				79B00B1628EB31F1008964A3 /* IntructionView.swift in Sources */,
 				79D84B1428AE7DC500927D4C /* WriteItOutApp.swift in Sources */,
 				7949CDB028DE01BB00B4D06A /* bohemianBackground.swift in Sources */,
 				79D64FB228C2456F0077A8FE /* FeelingCircles.swift in Sources */,

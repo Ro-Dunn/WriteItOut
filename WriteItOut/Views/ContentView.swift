@@ -48,6 +48,11 @@ struct ContentView: View {
                             .cornerRadius(40)
                             .font(.title)
                     }
+                    NavigationLink(destination: IntructionView()) {
+                        Text("Instructions")
+                            .padding(.top)
+                            .frame(alignment: .bottom)
+                    }
                     
                 }
                 .toolbar {

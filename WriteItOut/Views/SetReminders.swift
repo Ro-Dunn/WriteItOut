@@ -20,7 +20,7 @@ struct SetReminders: View {
         Text("When Would You Like A Reminder?")
             .font(.subheadline)
         Form {
-            Section("Notification Prefereance") {
+            Section("Notification Preferance") {
                 DatePicker( selection: $datePickerDate, displayedComponents: .hourAndMinute){
                     Text("Date Picker")
                 }
@@ -40,7 +40,7 @@ struct SetReminders: View {
             }
             
             Section{
-                Text("You have a daily remider set for \(whatTime)")
+                Text("You have a daily reminder set for \(whatTime)")
             }
         }
     }//end form

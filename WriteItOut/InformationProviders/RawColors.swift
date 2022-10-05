@@ -7,4 +7,6 @@
 
 import Foundation
 
-let feelingArray:[String] = ["FeelingAngry", "FeelingSad", "FeelingCalm", "FeelingJoyus", "FeelingDisgruntled", "FeelingMeh"]
+let feelingArray = ["FeelingAngry" : "Angry", "FeelingSad" : "Sad", "FeelingCalm" : "Calm", "FeelingJoyus" : "Joyus", "FeelingDisgruntled" : "Upset", "FeelingMeh" : "Meh"]
+
+

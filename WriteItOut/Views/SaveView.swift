@@ -32,7 +32,7 @@ struct SaveView: View {
             VStack (spacing: 40){
                 if showMapElements == true{
                     Form{
-                        Text("Make a map entry?")
+                        Text("How are you feeling?")
                             .font(.subheadline)
                         
                         Circle()
@@ -42,11 +42,11 @@ struct SaveView: View {
                         Section{
                             ScrollView(.horizontal) {
                                 HStack(spacing: 15) {
-                                    ForEach (feelingArray) { feeling in
-                                        CircleView(label: feeling)
+                                    ForEach (feelingArray.sorted(by: >), id: \.key) { key, value in
+                                        CircleView(label: key, color: value)
                                             .onTapGesture {
                                                 colorSelected = true
-                                                thisColorSelected = feeling
+                                                thisColorSelected = key
                                             }
                                     }
                                     

@@ -47,20 +47,20 @@ struct ColorMap: View {
                     .fill(colorSelected == true ? Color("\(thisColorSelected)") : Color("SystemColor"))
                     .frame(width: 100, height: 100)
                 Divider()
-
+                
                 VStack {
                     Divider()
                     ScrollView(.horizontal) {
                         HStack(spacing: 15) {
-                            ForEach (feelingArray) { feeling in
-                                CircleView(label: feeling)
+                            ForEach (feelingArray.sorted(by: >), id: \.key) { key, value in
+                                CircleView(label: key, color: value)
                                     .onTapGesture {
                                         colorSelected = true
-                                        thisColorSelected = feeling
+                                        thisColorSelected = key
                                     }
                             }
-                            
                         }.padding()
+                        
                     }.frame(height: 100)
                 }
                 
@@ -84,7 +84,7 @@ struct ColorMap: View {
             Button("Make Entry"){
                 noneToday = didEntryToday
             }
-
+            
             Form{
                 ForEach(daliy) { daily in
                     HStack {
