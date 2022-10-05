@@ -141,9 +141,9 @@
 		79D64FB528C79CCB0077A8FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				79B00B1528EB31F1008964A3 /* IntructionView.swift */,
 				79D84B1528AE7DC500927D4C /* ContentView.swift */,
 				7990843228D4BCE0007DA308 /* SetReminders.swift */,
+				79B00B1528EB31F1008964A3 /* IntructionView.swift */,
 				79D84B4728AFED1E00927D4C /* JournalView.swift */,
 				7973DA7B28C0FDD1005E381D /* ColorMap.swift */,
 				7997402128B7C3760031589C /* SaveView.swift */,

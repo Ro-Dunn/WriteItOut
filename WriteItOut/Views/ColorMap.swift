@@ -32,7 +32,6 @@ struct ColorMap: View {
     init(colorSelected:Bool, thisColorSelected:String, dateOfEntry: Date, noneToday:Bool){
         let df = DateFormatter()
         df.dateStyle = .short
-        let dateString = df.string(from: Date())
         _daliy = FetchRequest(sortDescriptors: [NSSortDescriptor(key: "dateString", ascending: true)])
         self._colorSelected = State(initialValue: colorSelected)
         self._thisColorSelected = State(initialValue: thisColorSelected)

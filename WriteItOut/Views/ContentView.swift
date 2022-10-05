@@ -23,6 +23,7 @@ struct ContentView: View {
                 VStack {
                     Text("Welcome Back")
                         .padding()
+                        .foregroundColor(Color("FeelingSad"))
                     
                     NavigationLink(
                         destination: JournalView(rootIsActive: self.$isActive, user: user),
