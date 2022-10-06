@@ -21,6 +21,7 @@ struct JournalView: View {
     @State private var showingSheet = false
     @State var user:User
     
+    
     var body: some View {
         ZStack{
             VStack {
@@ -40,7 +41,7 @@ struct JournalView: View {
                     }
                 HStack{
                     NavigationLink(destination: SaveView(shouldPopToRootView: self.$rootIsActive, isWantingToShare: false, date: Date(), thisColorSelected: "SystemColor", colorSelected: false)) {
-                        Text("Done")
+                        Text("Done").font(Font.custom("Futura-Bold", size: 30))
                     }
                     .isDetailLink(false)
                     //                        .navigationBarTitle("Two")
@@ -58,6 +59,7 @@ struct JournalView: View {
                                 finishEnabled.toggle()
                                 showingSheet.toggle()
                             }
+                            .font(Font.custom("Futura", size: 21))
                             .sheet(isPresented: $showingSheet) {
                                 SheetView(user: user, timeRemaining:user.breathingSelection.breatheIn )
                             }

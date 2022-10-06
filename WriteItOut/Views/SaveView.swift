@@ -85,15 +85,17 @@ struct SaveView: View {
                     Button (action: { self.shouldPopToRootView = false } ){
                         Text("Finish")
                     }
+                    .font(Font.custom("Futura-Bold", size: 30))
                     .frame(minWidth: 0, maxWidth: 100)
                     .padding()
                     .background(Color("SystemColor"))
                     .clipShape(Capsule())
                     .foregroundColor(.white)
                     
-                    Button("Share") {
+                    Button("Save") {
                         isWantingToShare = true
                     }
+                    .font(Font.custom("Futura-Bold", size: 30))
                     .frame(minWidth: 0, maxWidth: 100)
                     .padding()
                     .background(Color("SystemColor"))

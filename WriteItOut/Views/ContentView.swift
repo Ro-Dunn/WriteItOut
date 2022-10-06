@@ -21,15 +21,15 @@ struct ContentView: View {
             ZStack{
                 bohemianBackground(backgroundTracker: 0)
                 VStack {
-                    Text("Welcome Back")
+                    Text("Welcome Back").font(Font.custom("Futura-MediumItalic", size: 30))
                         .padding()
-                        .foregroundColor(Color("FeelingSad"))
+                        .foregroundColor(Color("FeelingCalm"))
                     
                     NavigationLink(
                         destination: JournalView(rootIsActive: self.$isActive, user: user),
                         isActive: self.$isActive
                     ) {
-                        Text("Journal")
+                        Text("Journal").font(Font.custom("Futura-Bold", size: 30))
                     }
                     .isDetailLink(false)
                     //                .navigationBarTitle("Root")
@@ -42,6 +42,7 @@ struct ContentView: View {
                     
                     NavigationLink(destination: ColorMap(colorSelected: false, thisColorSelected: "SystemColor", dateOfEntry: Date(), noneToday: true)) {
                         Text("Color Map")
+                            .font(Font.custom("Futura-Bold", size: 30))
                             .frame(minWidth: 0, maxWidth: 300)
                             .padding()
                             .foregroundColor(.white)
@@ -59,7 +60,7 @@ struct ContentView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink(destination: SetReminders() ) {
-                            Text("Set Reminders")
+                            Text("Set Reminders").font(Font.custom("Futura", size: 21))
                         }
                     }
                 }

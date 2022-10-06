@@ -70,6 +70,7 @@ struct ColorMap: View {
                     newColorData.color = thisColorSelected
                     noneToday = !didEntryToday
                 }
+                .font(Font.custom("Futura", size: 20))
                 .frame(minWidth: 0, maxWidth: 100)
                 .padding()
                 .background(Color("SystemColor"))
@@ -83,6 +84,7 @@ struct ColorMap: View {
             Button("Make Entry"){
                 noneToday = didEntryToday
             }
+            .font(Font.custom("Futura", size: 20))
             
             Form{
                 ForEach(daliy) { daily in
